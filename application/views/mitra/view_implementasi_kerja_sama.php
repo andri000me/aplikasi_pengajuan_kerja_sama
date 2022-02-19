@@ -2,24 +2,24 @@
 <html lang="en">
 
 <head>
-    <?php $this->load->view("admin/components/header.php") ?>
+    <?php $this->load->view("mitra/components/header.php") ?>
 </head>
 
 <body class="sb-nav-fixed">
 
-<?php $this->load->view("admin/components/nav_bar.php") ?>
+<?php $this->load->view("mitra/components/nav_bar.php") ?>
 
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
-        <?php $this->load->view("admin/components/side_bar.php") ?>
+        <?php $this->load->view("mitra/components/side_bar.php") ?>
         </div>
         <div id="layoutSidenav_content">
             <main>
             <div class="container-fluid px-4">
                         <h1 class="mt-4">Tables</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Tables</li>
+                            <li class="breadcrumb-item"><a href="<?= base_url();?>Dashboard/dashboard_mitra">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Implementasi Kerja Sama</li>
                         </ol>
                         <div class="card mb-4">
                             <div class="card-body">

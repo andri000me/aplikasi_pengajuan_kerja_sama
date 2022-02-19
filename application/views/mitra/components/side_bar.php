@@ -2,19 +2,19 @@
     <div class="sb-sidenav-menu">
         <div class="nav">
             <div class="sb-sidenav-menu-heading">Core</div>
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="<?= base_url();?>Dashboard/dashboard_mitra">
                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                 Dashboard
             </a>
-            <a class="nav-link" href="<?= base_url();?>Kerja_sama_eksternal/view_kerja_sama_eksternal">
+            <a class="nav-link" href="<?= base_url();?>Kerja_sama_eksternal/view_mitra">
                 <div class="sb-nav-link-icon"><i class="fas fa-archive"></i></div>
                 Kerja Sama Eksternal
             </a>
-            <a class="nav-link" href="<?= base_url();?>Kerja_sama_internal/view_kerja_sama_internal">
+            <a class="nav-link" href="<?= base_url();?>Kerja_sama_internal/view_mitra">
                 <div class="sb-nav-link-icon"><i class="fas fa-archive"></i></div>
                 Kerja Sama Internal
             </a>
-            <a class="nav-link" href="<?= base_url();?>Implementasi_kerja_sama/view_implementasi_kerja_sama">
+            <a class="nav-link" href="<?= base_url();?>Implementasi_kerja_sama/view_mitra">
                 <div class="sb-nav-link-icon"><i class="fas fa-archive"></i></div>
                 Implementasi Kerja Sama
             </a>

@@ -18,8 +18,8 @@
             <div class="container-fluid px-4">
                         <h1 class="mt-4">Tables</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Tables</li>
+                            <li class="breadcrumb-item"><a href="<?= base_url();?>Dashboard/dashboard_admin">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Kerja Sama Eksternal</li>
                         </ol>
                         <div class="card mb-4">
                             <div class="card-body">
