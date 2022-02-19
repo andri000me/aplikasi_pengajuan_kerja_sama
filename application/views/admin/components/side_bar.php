@@ -18,7 +18,7 @@
                 <div class="sb-nav-link-icon"><i class="fas fa-archive"></i></div>
                 Implementasi Kerja Sama
             </a>
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="<?= base_url();?>Form_pengajuan/form_pengajuan_admin">
                 <div class="sb-nav-link-icon"><i class="fas fa-archive"></i></div>
                 Form Pengajuan
             </a>
