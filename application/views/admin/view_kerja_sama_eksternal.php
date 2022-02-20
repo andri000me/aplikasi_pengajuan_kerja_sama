@@ -16,7 +16,7 @@
         <div id="layoutSidenav_content">
             <main>
             <div class="container-fluid px-4">
-                        <h1 class="mt-4">Tables</h1>
+                        <h1 class="mt-4">Table Kerja Sama Eksternal</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="<?= base_url();?>Dashboard/dashboard_admin">Dashboard</a></li>
                             <li class="breadcrumb-item active">Kerja Sama Eksternal</li>
@@ -31,18 +31,19 @@
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                DataTable Example
+                                Data Kerja Sama Eksternal
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>No Usulan</th>
+                                            <th>Keterangan</th>
+                                            <th>Lembaga Mitra</th>
+                                            <th>Pengusul</th>
+                                            <th>Status Kerja Sama </th>
+                                            <th>File Kerja Sama Eksternak</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -53,6 +54,20 @@
                                             <td>61</td>
                                             <td>2011/04/25</td>
                                             <td>$320,800</td>
+                                            <td>
+                                            <div class="table-resposive">
+                                                <div class="table table-striped table-hover ">
+                                                    <a type="button" class="btn btn-primary"><i
+                                                            class="fas fa-plus"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="table-resposive">
+                                                <div class="table table-striped table-hover ">
+                                                    <a type="button" class="btn btn-danger"><i
+                                                            class="fas fa-trash"></i></a>
+                                                </div>
+                                            </div>
+                                        </td>
                                         </tr>
                                     </tbody>
                                 </table>

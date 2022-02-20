@@ -16,10 +16,10 @@
         <div id="layoutSidenav_content">
             <main>
             <div class="container-fluid px-4">
-                        <h1 class="mt-4">Table Kerja Sama Internal</h1>
+                        <h1 class="mt-4">Table Pengajuan</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="<?= base_url();?>Dashboard/dashboard_admin">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Kerja Sama Internal</li>
+                            <li class="breadcrumb-item active">Pengajuan</li>
                         </ol>
                         <div class="card mb-4">
                             <div class="card-body">
@@ -31,18 +31,21 @@
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                Data Kerja Sama Internal
+                                Data Pengajuan
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                            <th>No Usulan</th>
+                                            <th>No Pengajuan</th>
                                             <th>Keterangan</th>
-                                            <th>Lembaga Mitra</th>
-                                            <th>Pengusul</th>
-                                            <th>Status Kerja Sama </th>
-                                            <th>File Kerja Sama Internal</th>
+                                            <th>Bentuk Perjanjian</th>
+                                            <th>Jenis Pengajuan</th>
+                                            <th>File Data Pengajuan</th>
+                                            <th>Negara Asal Pengajuan</th>
+                                            <th>Status Pengajuan</th>
+                                            <th>Kategori Kerjasama</th>
+                                            <th>Pengirim</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -51,6 +54,9 @@
                                             <td>Tiger Nixon</td>
                                             <td>System Architect</td>
                                             <td>Edinburgh</td>
+                                            <td>61</td>
+                                            <td>2011/04/25</td>
+                                            <td>$320,800</td>
                                             <td>61</td>
                                             <td>2011/04/25</td>
                                             <td>$320,800</td>
