@@ -33,6 +33,15 @@
     });
     </script>
     <?php } ?>
+    <?php if ($this->session->flashdata('loggin_err')){ ?>
+    <script>
+    swal({
+        title: "Session Anda Berakhir!",
+        text: "Silahkan Login Ulang!",
+        icon: "error"
+    });
+    </script>
+    <?php } ?>
     <div id="layoutAuthentication">
         <div id="layoutAuthentication_content">
             <main>

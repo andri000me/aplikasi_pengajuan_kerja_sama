@@ -26,7 +26,7 @@ class Login extends CI_Controller {
 
 			if($user['id_user_level'] == 1){
 
-				$this->session->set_userdata('login', true);
+				$this->session->set_userdata('logged_in', true);
 				$this->session->set_userdata('username', $user['username']);
 				$this->session->set_userdata('email', $user['email']);
 				$this->session->set_userdata('nama_mitra', $user['nama_mitra']);
@@ -34,10 +34,10 @@ class Login extends CI_Controller {
 				$this->session->set_userdata('id_user_level', $user['id_user_level']);
 
 				redirect('Dashboard/dashboard_admin');
-				
+
 			}else if($user['id_user_level'] == 2){
 
-				$this->session->set_userdata('login', true);
+				$this->session->set_userdata('logged_in', true);
 				$this->session->set_userdata('username', $user['username']);
 				$this->session->set_userdata('email', $user['email']);
 				$this->session->set_userdata('nama_mitra', $user['nama_mitra']);
@@ -47,12 +47,12 @@ class Login extends CI_Controller {
 				redirect('Dashboard/dashboard_mitra');
 
 			}else{
-
+				$this->session->set_flashdata('loggin_err','loggin_err');
 				redirect('Login/index');
 
 			}
 		}else{
-
+			$this->session->set_flashdata('loggin_err_no_user','loggin_err_no_user');
 			redirect('Login/index');
 		}
 
