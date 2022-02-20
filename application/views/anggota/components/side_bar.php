@@ -2,23 +2,23 @@
     <div class="sb-sidenav-menu">
         <div class="nav">
             <div class="sb-sidenav-menu-heading">Core</div>
-            <a class="nav-link" href="<?= base_url();?>Dashboard/dashboard_mitra">
+            <a class="nav-link" href="<?= base_url();?>Dashboard/dashboard_anggota">
                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                 Dashboard
             </a>
-            <a class="nav-link" href="<?= base_url();?>Kerja_sama_eksternal/view_mitra">
+            <a class="nav-link" href="<?= base_url();?>Kerja_sama_eksternal/view_anggota">
                 <div class="sb-nav-link-icon"><i class="fas fa-archive"></i></div>
                 Kerja Sama Eksternal
             </a>
-            <a class="nav-link" href="<?= base_url();?>Kerja_sama_internal/view_mitra">
+            <a class="nav-link" href="<?= base_url();?>Kerja_sama_internal/view_anggota">
                 <div class="sb-nav-link-icon"><i class="fas fa-archive"></i></div>
                 Kerja Sama Internal
             </a>
-            <a class="nav-link" href="<?= base_url();?>Implementasi_kerja_sama/view_mitra">
+            <a class="nav-link" href="<?= base_url();?>Implementasi_kerja_sama/view_anggota">
                 <div class="sb-nav-link-icon"><i class="fas fa-archive"></i></div>
                 Implementasi Kerja Sama
             </a>
-            <a class="nav-link" href="<?= base_url();?>Form_pengajuan/form_pengajuan_mitra">
+            <a class="nav-link" href="<?= base_url();?>Form_pengajuan/form_pengajuan_anggota">
                 <div class="sb-nav-link-icon"><i class="fas fa-archive"></i></div>
                 Form Pengajuan
             </a>

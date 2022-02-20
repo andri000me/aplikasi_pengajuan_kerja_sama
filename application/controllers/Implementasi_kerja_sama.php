@@ -13,4 +13,9 @@ class Implementasi_kerja_sama extends CI_Controller {
 		$this->load->view('mitra/view_implementasi_kerja_sama');
 	}
 
+	public function view_anggota()
+	{
+		$this->load->view('anggota/view_implementasi_kerja_sama');
+	}
+
 }

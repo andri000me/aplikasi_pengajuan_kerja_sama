@@ -11,6 +11,11 @@ class Form_pengajuan extends CI_Controller {
 	public function form_pengajuan_mitra()
 	{
 		$this->load->view('mitra/form_pengajuan');
+    }
+    
+    public function form_pengajuan_anggota()
+	{
+		$this->load->view('anggota/form_pengajuan');
 	}
 
 }
