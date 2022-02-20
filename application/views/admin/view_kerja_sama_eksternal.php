@@ -72,17 +72,17 @@
                                 <tbody>
                                     <?php
                   $id = 0;
-                 
+                
                   foreach($kerja_sama_eksternal->result_array() as $i)
                   :
-                  $id++;
+                 
                   $no_usulan = $i['no_usulan'];
                   $keterangan = $i['keterangan'];
                   $id_lembaga_mitra = $i['nama_mitra'];
-                  $id_pengusul = $kerja_sama_eksternal_pengusul["nama_pengusul"];
+                  $id_pengusul = $kerja_sama_eksternal_pengusul[$id]["nama_pengusul"];
                   $id_status_kerja_sama = $i['id_status_kerja_sama'];
                   $file_kerja_sama_eksternal = $i['file_kerja_sama_eksternal'];
-                 
+                  $id++;
                   
 
               ?>
