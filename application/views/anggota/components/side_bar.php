@@ -31,9 +31,9 @@
             </a>
             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                 <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href="layout-static.html">Static Navigation</a>
-                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
-                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
+                    <a class="nav-link" href="layout-static.html">Pendidikan</a>
+                    <a class="nav-link" href="layout-sidenav-light.html">Penelitian</a>
+                    <a class="nav-link" href="layout-sidenav-light.html">Pengabdian</a>
                 </nav>
             </div>
             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#filter_data"
@@ -44,9 +44,9 @@
             </a>
             <div class="collapse" id="filter_data" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                 <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href="layout-static.html">Static Navigation</a>
-                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
-                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
+                    <a class="nav-link" href="layout-static.html">Pendidikan</a>
+                    <a class="nav-link" href="layout-sidenav-light.html">Penelitian</a>
+                    <a class="nav-link" href="layout-sidenav-light.html">Pengabdian</a>
                 </nav>
             </div>
             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#filter_data_implementasi"
@@ -57,9 +57,9 @@
             </a>
             <div class="collapse" id="filter_data_implementasi" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                 <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href="layout-static.html">Static Navigation</a>
-                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
-                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
+                    <a class="nav-link" href="layout-static.html">Pendidikan</a>
+                    <a class="nav-link" href="layout-sidenav-light.html">Penelitian</a>
+                    <a class="nav-link" href="layout-sidenav-light.html">Pengabdian</a>
                 </nav>
             </div>
          
@@ -67,6 +67,6 @@
     </div>
     <div class="sb-sidenav-footer">
         <div class="small">Logged in as:</div>
-        Start Bootstrap
+        Anggota
     </div>
 </nav>
