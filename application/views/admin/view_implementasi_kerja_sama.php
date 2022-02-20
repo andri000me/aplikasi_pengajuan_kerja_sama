@@ -6,7 +6,15 @@
 </head>
 
 <body class="sb-nav-fixed">
-
+    <?php if ($this->session->flashdata('input')){ ?>
+    <script>
+    swal({
+        title: "Success!",
+        text: "Berhasil Upload !",
+        icon: "success"
+    });
+    </script>
+    <?php } ?>
     <?php $this->load->view("admin/components/nav_bar.php") ?>
 
     <div id="layoutSidenav">
@@ -46,14 +54,31 @@
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
+
                                 <tbody>
+                                    <?php
+                  $id = 0;
+                  foreach($kerja_sama_eksternal->result_array() as $i)
+                  :
+                  $id++;
+                  $no_usulan = $i['no_usulan'];
+                  $keterangan = $i['keterangan'];
+                  $id_lembaga_mitra = $i['id_lembaga_mitra'];
+                  $id_pengusul = $i['id_pengusul'];
+                  $id_status_kerja_sama = $i['id_status_kerja_sama'];
+                  $file_kerja_sama_eksternal = $i['file_kerja_sama_eksternal'];
+                 
+                  
+
+              ?>
                                     <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
+                                        <td><?= $id ?></td>
+                                        <td><?= $no_usulan ?></td>
+                                        <td><?= $keterangan ?></td>
+                                        <td><?= $id_lembaga_mitra ?></td>
+                                        <td><?= $id_pengusul ?></td>
+                                        <td><?= $id_status_kerja_sama ?></td>
+                                        <td><?= $file_kerja_sama_eksternal ?></td>
                                         <td>
                                             <div class="table-resposive">
                                                 <div class="table table-striped table-hover ">
@@ -69,6 +94,7 @@
                                             </div>
                                         </td>
                                     </tr>
+                                    <?php endforeach;?>
                                 </tbody>
                             </table>
                         </div>
@@ -78,7 +104,8 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Tambah Data Implementasi Kerja Sama
+                                        <h5 class="modal-title" id="exampleModalLabel">Tambah Data Implementasi Kerja
+                                            Sama
                                         </h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>

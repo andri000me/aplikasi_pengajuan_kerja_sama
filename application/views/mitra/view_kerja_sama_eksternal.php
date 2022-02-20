@@ -6,7 +6,7 @@
 </head>
 
 <body class="sb-nav-fixed">
-
+    
     <?php $this->load->view("mitra/components/nav_bar.php") ?>
 
     <div id="layoutSidenav">

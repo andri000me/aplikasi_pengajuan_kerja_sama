@@ -6,6 +6,27 @@
 </head>
 
 <body class="sb-nav-fixed">
+    <?php if ($this->session->flashdata('input')){ ?>
+    <script>
+    swal({
+        title: "Success!",
+        text: "Data Berhasil Ditambahkan!",
+        icon: "success"
+    });
+    </script>
+    <?php } ?>
+
+    <?php if ($this->session->flashdata('eror')){ ?>
+    <script>
+    swal({
+        title: "Erorr!",
+        text: "Data Gagal Ditambahkan!",
+        icon: "eror"
+    });
+    </script>
+    <?php } ?>
+
+
 
     <?php $this->load->view("admin/components/nav_bar.php") ?>
 
@@ -38,23 +59,48 @@
                             <table id="datatablesSimple">
                                 <thead>
                                     <tr>
+                                        <th>No</th>
                                         <th>No Usulan</th>
                                         <th>Keterangan</th>
                                         <th>Lembaga Mitra</th>
                                         <th>Pengusul</th>
                                         <th>Status Kerja Sama </th>
-                                        <th>File Kerja Sama Eksternak</th>
-                                        <th>Aksi</th>
+                                        <th>File Kerja Sama Eksternal</th>
+                                        <th colspan="2">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php
+                  $id = 0;
+                 
+                  foreach($kerja_sama_eksternal->result_array() as $i)
+                  :
+                  $id++;
+                  $no_usulan = $i['no_usulan'];
+                  $keterangan = $i['keterangan'];
+                  $id_lembaga_mitra = $i['nama_mitra'];
+                  $id_pengusul = $kerja_sama_eksternal_pengusul["nama_pengusul"];
+                  $id_status_kerja_sama = $i['id_status_kerja_sama'];
+                  $file_kerja_sama_eksternal = $i['file_kerja_sama_eksternal'];
+                 
+                  
+
+              ?>
                                     <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
+                                        <td><?= $id ?></td>
+                                        <td><?= $no_usulan ?></td>
+                                        <td><?= $keterangan ?></td>
+                                        <td><?= $id_lembaga_mitra ?></td>
+                                        <td><?= $id_pengusul ?></td>
+                                        <td><?= $id_status_kerja_sama ?></td>
+                                        <td class="text-center">
+                                            <div class="table-resposive">
+                                                <div class="table table-striped table-hover "><a type="button" class="btn btn-primary"
+                                                        href="<?=base_url();?>assets/kerja_sama_eksternal/admin/<?=$file_kerja_sama_eksternal?>"><i
+                                                            class="fas fa-download"></i></a>
+                                                </div>
+                                            </div>
+                                        </td>
                                         <td>
                                             <div class="table-resposive">
                                                 <div class="table table-striped table-hover ">
@@ -62,6 +108,8 @@
                                                             class="fas fa-plus"></i></a>
                                                 </div>
                                             </div>
+                                        </td>
+                                        <td>
                                             <div class="table-resposive">
                                                 <div class="table table-striped table-hover ">
                                                     <a type="button" class="btn btn-danger"><i
@@ -70,6 +118,7 @@
                                             </div>
                                         </td>
                                     </tr>
+                                    <?php endforeach;?>
                                 </tbody>
                             </table>
                         </div>
@@ -85,19 +134,22 @@
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <form>
+                                        <form action="<?= base_url(); ?>Kerja_sama_eksternal/input_data_admin"
+                                            enctype="multipart/form-data" method="POST">
                                             <div class="mb-3">
                                                 <label for="no_pengajuan" class="form-label">Nomor Usulan</label>
-                                                <input type="text" class="form-control" id="no_pengajuan"
+                                                <input type="text" class="form-control" id="no_usulan" name="no_usulan"
                                                     aria-describedby="no_pengajuan">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="keterangan" class="form-label">Keterangan</label>
-                                                <input type="text" class="form-control" id="keterangan">
+                                                <input type="text" class="form-control" id="keterangan"
+                                                    name="keterangan">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="keterangan" class="form-label">Lembaga Mitra</label>
-                                                <select class="form-select" aria-label="Default select example">
+                                                <select class="form-select" aria-label="Default select example"
+                                                    name="id_lembaga_mitra">
                                                     <option selected>Open this select menu</option>
                                                     <option value="1">One</option>
                                                     <option value="2">Two</option>
@@ -106,7 +158,8 @@
                                             </div>
                                             <div class="mb-3">
                                                 <label for="keterangan" class="form-label">Pengusul</label>
-                                                <select class="form-select" aria-label="Default select example">
+                                                <select class="form-select" aria-label="Default select example"
+                                                    name="id_pengusul">
                                                     <option selected>Open this select menu</option>
                                                     <option value="1">One</option>
                                                     <option value="2">Two</option>
@@ -115,7 +168,8 @@
                                             </div>
                                             <div class="mb-3">
                                                 <label for="keterangan" class="form-label">Status Kerja Sama</label>
-                                                <select class="form-select" aria-label="Default select example">
+                                                <select class="form-select" aria-label="Default select example"
+                                                    name="id_status_kerja_sama">
                                                     <option selected>Open this select menu</option>
                                                     <option value="1">One</option>
                                                     <option value="2">Two</option>
@@ -123,13 +177,14 @@
                                                 </select>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="keterangan" class="form-label">File Kerja Sama Eksternal</label>
-                                                <input type="file" class="form-control" id="keterangan">
+                                                <label for="keterangan" class="form-label">File Kerja Sama
+                                                    Eksternal</label>
+                                                <input type="file" class="form-control" id="keterangan"
+                                                    name="file_kerja_sama_eksternal">
                                             </div>
                                             <button type="submit" class="btn btn-primary">Submit</button>
                                         </form>
                                     </div>
-
                                 </div>
                             </div>
                         </div>

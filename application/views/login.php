@@ -42,6 +42,15 @@
     });
     </script>
     <?php } ?>
+    <?php if ($this->session->flashdata('loggin_err_no_user')){ ?>
+    <script>
+    swal({
+        title: "Erorr!",
+        text: "Password dan Username Yang Anda Masukan Salah!",
+        icon: "error"
+    });
+    </script>
+    <?php } ?>
     <div id="layoutAuthentication">
         <div id="layoutAuthentication_content">
             <main>
