@@ -46,7 +46,7 @@
                     </ol>
                     <ol>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
+                            data-bs-target="#tambah_kerja_sama_eksternal">
                             Tambah Data <i class="fas fa-plus"></i>
                         </button>
                     </ol>
@@ -71,24 +71,21 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                  $id = 0;
-                  
-                  foreach($kerja_sama_eksternal->result_array() as $i)
-                  :
-                  
+                  $no_id = 0;
+                  $no = 1;
+                  foreach($kerja_sama_eksternal as $i){
+                 
+                  $id_kerja_sama_eksternal = $i['id_kerja_sama_eksternal'];
                   $no_usulan = $i['no_usulan'];
                   $keterangan = $i['keterangan'];
                   $id_lembaga_mitra = $i['nama_mitra'];
-                  $id_pengusul = $kerja_sama_eksternal_pengusul[$id]['nama_pengusul'];
+                  $id_pengusul =  $kerja_sama_eksternal_pengusul[$no_id++]['nama_pengusul'];
                   $id_status_kerja_sama = $i['id_status_kerja_sama'];
                   $file_kerja_sama_eksternal = $i['file_kerja_sama_eksternal'];
-                  $id++;
-                 
                   
-
               ?>
                                     <tr>
-                                        <td><?= $id ?></td>
+                                        <td><?= $no++ ?></td>
                                         <td><?= $no_usulan ?></td>
                                         <td><?= $keterangan ?></td>
                                         <td><?= $id_lembaga_mitra ?></td>
@@ -96,7 +93,8 @@
                                         <td><?= $id_status_kerja_sama ?></td>
                                         <td class="text-center">
                                             <div class="table-resposive">
-                                                <div class="table table-striped table-hover "><a type="button" class="btn btn-primary"
+                                                <div class="table table-striped table-hover "><a type="button"
+                                                        class="btn btn-primary"
                                                         href="<?=base_url();?>assets/kerja_sama_eksternal/admin/<?=$file_kerja_sama_eksternal?>"><i
                                                             class="fas fa-download"></i></a>
                                                 </div>
@@ -105,8 +103,10 @@
                                         <td>
                                             <div class="table-resposive">
                                                 <div class="table table-striped table-hover ">
-                                                    <a type="button" class="btn btn-primary"><i
-                                                            class="fas fa-edit"></i></a>
+                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                        data-bs-target="#edit_kerja_sama_eksternal<?= $id_kerja_sama_eksternal ?>">
+                                                        Edit <i class="fas fa-plus"></i>
+                                                    </button>
                                                 </div>
                                             </div>
                                         </td>
@@ -119,13 +119,95 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <?php endforeach;?>
+                                    <div class="modal fade" id="edit_kerja_sama_eksternal<?= $id_kerja_sama_eksternal ?>" tabindex="-1"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Tambah Data Kerja
+                                                        Sama Eksternal
+                                                    </h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form
+                                                        action="<?= base_url(); ?>Kerja_sama_eksternal/input_data_admin"
+                                                        enctype="multipart/form-data" method="POST">
+                                                        <div class="mb-3">
+                                                            <label for="no_pengajuan" class="form-label">Nomor
+                                                                Usulan</label>
+                                                            <input type="text" class="form-control" id="no_usulan"
+                                                                name="no_usulan" aria-describedby="no_pengajuan" value="<?=$no_usulan?>">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="keterangan"
+                                                                class="form-label">Keterangan</label>
+                                                            <input type="text" class="form-control" id="keterangan"
+                                                                name="keterangan" value="<?=$keterangan?>">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="keterangan" class="form-label">Lembaga
+                                                                Mitra</label>
+                                                            <select class="form-select"
+                                                                aria-label="Default select example"
+                                                                name="id_lembaga_mitra">
+                                                                <?php foreach($user->result_array() as $u)
+                                                    :
+                                                    $id = $u["id"];
+                                                    $nama_mitra = $u["nama_mitra"];
+                                                     ?>
+                                                                <option value="<?= $id ?>"><?= $nama_mitra ?></option>
+
+                                                                <?php endforeach?>
+                                                            </select>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="keterangan" class="form-label">Pengusul</label>
+                                                            <select class="form-select"
+                                                                aria-label="Default select example" name="id_pengusul">
+                                                                <?php foreach($user->result_array() as $u)
+                                                    :
+                                                    $id = $u["id"];
+                                                    $nama_mitra = $u["nama_mitra"];
+                                                     ?>
+                                                                <option value="<?= $id ?>"><?= $nama_mitra ?></option>
+                                                                <?php endforeach?>
+                                                            </select>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="keterangan" class="form-label">Status Kerja
+                                                                Sama</label>
+                                                            <select class="form-select"
+                                                                aria-label="Default select example"
+                                                                name="id_status_kerja_sama">
+                                                                <option selected>Open this select menu</option>
+                                                                <option value="1">One</option>
+                                                                <option value="2">Two</option>
+                                                                <option value="3">Three</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="file_kerja_sama_eksternal" class="form-label">File Kerja Sama
+                                                                Eksternal</label>
+                                                            <input type="file" class="form-control" id="file_kerja_sama_eksternal"
+                                                                name="file_kerja_sama_eksternal_old" value="<?=$file_kerja_sama_eksternal?>" hidden>
+                                                            <input type="file" class="form-control" id="file_kerja_sama_eksternal"
+                                                                name="file_kerja_sama_eksternal">
+                                                        </div>
+                                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+<?php }?>
                                 </tbody>
                             </table>
                         </div>
                         <!-- Modal Tambah Data Kerja Sama Eksternal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
+                        <div class="modal fade" id="tambah_kerja_sama_eksternal" tabindex="-1"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -157,7 +239,7 @@
                                                     $nama_mitra = $u["nama_mitra"];
                                                      ?>
                                                     <option value="<?= $id ?>"><?= $nama_mitra ?></option>
-                                                   
+
                                                     <?php endforeach?>
                                                 </select>
                                             </div>

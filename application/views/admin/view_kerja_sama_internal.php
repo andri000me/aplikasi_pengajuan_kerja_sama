@@ -6,7 +6,25 @@
 </head>
 
 <body class="sb-nav-fixed">
+<?php if ($this->session->flashdata('input')){ ?>
+    <script>
+    swal({
+        title: "Success!",
+        text: "Data Berhasil Ditambahkan!",
+        icon: "success"
+    });
+    </script>
+    <?php } ?>
 
+    <?php if ($this->session->flashdata('eror')){ ?>
+    <script>
+    swal({
+        title: "Erorr!",
+        text: "Data Gagal Ditambahkan!",
+        icon: "eror"
+    });
+    </script>
+    <?php } ?>
     <?php $this->load->view("admin/components/nav_bar.php") ?>
 
     <div id="layoutSidenav">
@@ -37,6 +55,7 @@
                             <table id="datatablesSimple">
                                 <thead>
                                     <tr>
+                                        <th>No</th>
                                         <th>No Usulan</th>
                                         <th>Keterangan</th>
                                         <th>Lembaga Mitra</th>
@@ -47,18 +66,42 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                <?php
+                  $no_id = 0;
+                  $no = 1;
+                // echo var_dump($kerja_sama_internal_pengusul);
+                // die();
+                  foreach($kerja_sama_internal->result_array() as $i)
+                  :
+                  
+                  $no_usulan = $i['no_usulan'];
+                  $keterangan = $i['keterangan'];
+                  $id_lembaga_mitra = $i['nama_mitra'];
+                  $id_pengusul = $kerja_sama_internal_pengusul[$no_id++]['nama_pengusul'];
+                  $id_status_kerja_sama = $i['id_status_kerja_sama'];
+                  $file_kerja_sama_internal = $i['file_kerja_sama_internal'];
+               
+              ?>
                                     <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
+                                        <td><?= $no++ ?></td>
+                                        <td><?= $no_usulan ?></td>
+                                        <td><?= $keterangan ?></td>
+                                        <td><?= $id_lembaga_mitra ?></td>
+                                        <td><?= $id_pengusul ?></td>
+                                        <td><?= $id_status_kerja_sama ?></td>
+                                        <td class="text-center">
+                                            <div class="table-resposive">
+                                                <div class="table table-striped table-hover "><a type="button" class="btn btn-primary"
+                                                        href="<?=base_url();?>assets/kerja_sama_internal/admin/<?=$file_kerja_sama_internal?>"><i
+                                                            class="fas fa-download"></i></a>
+                                                </div>
+                                            </div>
+                                        </td>
                                         <td>
                                             <div class="table-resposive">
                                                 <div class="table table-striped table-hover ">
                                                     <a type="button" class="btn btn-primary"><i
-                                                            class="fas fa-plus"></i></a>
+                                                            class="fas fa-edit"></i></a>
                                                 </div>
                                             </div>
                                             <div class="table-resposive">
@@ -69,6 +112,7 @@
                                             </div>
                                         </td>
                                     </tr>
+                                <?php endforeach;?>
                                 </tbody>
                             </table>
                         </div>
@@ -84,19 +128,20 @@
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <form>
+                                        <form action="<?= base_url(); ?>Kerja_sama_internal/input_data_admin"
+                                            enctype="multipart/form-data" method="POST">
                                             <div class="mb-3">
-                                                <label for="no_pengajuan" class="form-label">Nomor Usulan</label>
-                                                <input type="text" class="form-control" id="no_pengajuan"
-                                                    aria-describedby="no_pengajuan">
+                                                <label for="no_usulan" class="form-label">Nomor Usulan</label>
+                                                <input type="text" class="form-control" id="no_pengajuan" name="no_usulan"
+                                                    aria-describedby="no_usulan">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="keterangan" class="form-label">Keterangan</label>
-                                                <input type="text" class="form-control" id="keterangan">
+                                                <input type="text" class="form-control" id="keterangan" name="keterangan">
                                             </div>
                                             <div class="mb-3">
-                                                <label for="keterangan" class="form-label">Lembaga Mitra</label>
-                                                <select class="form-select" aria-label="Default select example">
+                                                <label for="id_lembaga_mitra" class="form-label">Lembaga Mitra</label>
+                                                <select class="form-select" aria-label="Default select example" name="id_lembaga_mitra">
                                                     <option selected>Open this select menu</option>
                                                     <option value="1">One</option>
                                                     <option value="2">Two</option>
@@ -104,8 +149,8 @@
                                                 </select>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="keterangan" class="form-label">Pengusul</label>
-                                                <select class="form-select" aria-label="Default select example">
+                                                <label for="id_pengusul" class="form-label">Pengusul</label>
+                                                <select class="form-select" aria-label="Default select example" name="id_pengusul">
                                                     <option selected>Open this select menu</option>
                                                     <option value="1">One</option>
                                                     <option value="2">Two</option>
@@ -113,8 +158,8 @@
                                                 </select>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="keterangan" class="form-label">Status Kerja Sama</label>
-                                                <select class="form-select" aria-label="Default select example">
+                                                <label for="id_status_kerja_sama" class="form-label">Status Kerja Sama</label>
+                                                <select class="form-select" aria-label="Default select example" name="id_status_kerja_sama">
                                                     <option selected>Open this select menu</option>
                                                     <option value="1">One</option>
                                                     <option value="2">Two</option>
@@ -122,9 +167,9 @@
                                                 </select>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="keterangan" class="form-label">File Kerja Sama
+                                                <label for="file_kerja_sama_internal" class="form-label">File Kerja Sama
                                                     Internal</label>
-                                                <input type="file" class="form-control" id="keterangan">
+                                                <input type="file" class="form-control" id="file_kerja_sama_internal" name="file_kerja_sama_internal">
                                             </div>
                                             <button type="submit" class="btn btn-primary">Submit</button>
                                         </form>
