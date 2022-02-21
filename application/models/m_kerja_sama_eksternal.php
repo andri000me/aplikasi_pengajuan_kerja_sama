@@ -38,5 +38,5 @@ class M_kerja_sama_eksternal extends CI_Model
        return true;
        else
        return false;
-}
+    }
 }

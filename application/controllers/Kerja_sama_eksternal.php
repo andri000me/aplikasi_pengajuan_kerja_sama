@@ -169,7 +169,10 @@ class Kerja_sama_eksternal extends CI_Controller {
 	{
 		if ($this->session->userdata('logged_in') == true AND $this->session->userdata('id_user_level') == 2) {
 
-		$this->load->view('mitra/view_kerja_sama_eksternal');
+		$data['kerja_sama_eksternal'] = $this->m_kerja_sama_eksternal->get_kerja_sama_eksternal()->result_array();
+		$data['kerja_sama_eksternal_pengusul'] = $this->m_kerja_sama_eksternal->get_kerja_sama_eksternal_pengusul();
+		
+		$this->load->view('mitra/view_kerja_sama_eksternal', $data);
 
 		}else{
 			$this->session->set_flashdata('loggin_err','loggin_err');
@@ -179,7 +182,10 @@ class Kerja_sama_eksternal extends CI_Controller {
 
 	public function view_anggota()
 	{
-		$this->load->view('anggota/view_kerja_sama_eksternal');
+		$data['kerja_sama_eksternal'] = $this->m_kerja_sama_eksternal->get_kerja_sama_eksternal()->result_array();
+		$data['kerja_sama_eksternal_pengusul'] = $this->m_kerja_sama_eksternal->get_kerja_sama_eksternal_pengusul();
+
+		$this->load->view('anggota/view_kerja_sama_eksternal', $data);
 	}
 
 }

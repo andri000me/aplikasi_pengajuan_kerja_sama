@@ -22,4 +22,19 @@ class M_kerja_sama_internal extends CI_Model
         return $hasil;
     }
 
+    function update_kerja_sama_internal($id, $no_usulan, $keterangan, $id_lembaga_mitra, $id_pengusul, $id_status_kerja_sama, $file_kerja_sama_internal){
+        $hsl = $this->db->query("UPDATE kerja_sama_internal SET no_usulan='$no_usulan', keterangan='$keterangan' , id_lembaga_mitra='$id_lembaga_mitra', id_pengusul='$id_pengusul', id_status_kerja_sama='$id_status_kerja_sama' , file_kerja_sama_internal='$file_kerja_sama_internal' WHERE id_kerja_sama_internal='$id'");
+         return $hsl;
+     }
+
+    function hapus_kerja_sama_internal($id_kerja_sama_internal){
+        $this->db->trans_start();
+        $this->db->query("DELETE FROM kerja_sama_internal WHERE id_kerja_sama_internal='$id_kerja_sama_internal'");
+         
+        $this->db->trans_complete();
+       if($this->db->trans_status()==true)
+       return true;
+       else
+       return false;
+    }
 }

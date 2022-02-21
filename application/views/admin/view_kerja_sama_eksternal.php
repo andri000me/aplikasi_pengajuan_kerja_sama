@@ -6,7 +6,7 @@
 </head>
 
 <body class="sb-nav-fixed">
-    <?php if ($this->session->flashdata('input')){ ?>
+<?php if ($this->session->flashdata('input')){ ?>
     <script>
     swal({
         title: "Success!",
@@ -55,9 +55,6 @@
     });
     </script>
     <?php } ?>
-
-
-
     <?php $this->load->view("admin/components/nav_bar.php") ?>
 
     <div id="layoutSidenav">
@@ -151,6 +148,7 @@
                                             </div>
                                         </td>
                                     </tr>
+                                    <!-- Modal Hapus Kerja Sama Eksternal -->
                                     <div class="modal fade"
                                         id="hapus<?= $id_kerja_sama_eksternal ?>" tabindex="-1"
                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -191,6 +189,8 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                       <!-- Modal Edit Kerja Sama Eksternal -->
                                     <div class="modal fade"
                                         id="edit_kerja_sama_eksternal<?= $id_kerja_sama_eksternal ?>" tabindex="-1"
                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
