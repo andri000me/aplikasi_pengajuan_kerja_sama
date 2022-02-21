@@ -36,12 +36,12 @@ class Kerja_sama_eksternal extends CI_Controller {
 		$id_status_kerja_sama = $this->input->post("id_status_kerja_sama");
 		$file_name = md5($no_usulan.$keterangan);
 		
-		$path = './assets/kerja_sama_eksternal/admin';
+		$path = './assets/kerja_sama_eksternal/admin/';
 
 		$this->load->library('upload');
 		$config['upload_path'] = './assets/kerja_sama_eksternal/admin';
 		$config['allowed_types'] = 'pdf|docx';
-		$config['max_size'] = '2048';  //2MB max
+		$config['max_size'] = '4048';  //2MB max
 		$config['max_width'] = '4480'; // pixel
 		$config['max_height'] = '4480'; // pixel
 		$config['file_name'] = $file_name;
@@ -73,6 +73,96 @@ class Kerja_sama_eksternal extends CI_Controller {
 		}
 		
 
+	}
+
+	public function edit_data_admin(){
+		if ($this->session->userdata('logged_in') == true AND $this->session->userdata('id_user_level') == 1) {
+		
+		$id_kerja_sama_eksternal = $this->input->post("id_kerja_sama_eksternal");
+		$no_usulan = $this->input->post("no_usulan");
+		$keterangan = $this->input->post("keterangan");
+		$id_lembaga_mitra = $this->input->post("id_lembaga_mitra");
+		$id_pengusul = $this->input->post("id_pengusul");
+		$id_status_kerja_sama = $this->input->post("id_status_kerja_sama");
+		$file = $this->input->post('file_kerja_sama_eksternal_old');
+		$file_name = md5($no_usulan.$keterangan);
+		
+		// echo $id_kerja_sama_eksternal;
+		// echo "<br>";
+		// echo $no_usulan;
+		// echo "<br>";
+		// echo $keterangan;
+		// echo "<br>";
+		// echo $id_lembaga_mitra;
+		// echo "<br>";
+		// echo $id_pengusul;
+		// echo "<br>";
+		// echo $id_status_kerja_sama;
+		// echo "<br>";
+		// echo $file_name;
+		// echo "<br>";
+		// echo $file;
+		// die();
+		$path = './assets/kerja_sama_eksternal/admin/';
+
+
+
+		$this->load->library('upload');
+		$config['upload_path'] = './assets/kerja_sama_eksternal/admin';
+		$config['allowed_types'] = 'pdf|docx';
+		$config['max_size'] = '4048';  //2MB max
+		$config['max_width'] = '4480'; // pixel
+		$config['max_height'] = '4480'; // pixel
+		$config['file_name'] = $file_name;
+		$this->upload->initialize($config);
+		$file_kerja_sama_eksternal_upload = $this->upload->do_upload('file_kerja_sama_eksternal');
+
+			if($file_kerja_sama_eksternal_upload){
+				$file_kerja_sama_eksternal = $this->upload->data();
+			}else{
+				$this->session->set_flashdata('error_file_kerja_sama_eksternal','error_file_kerja_sama_eksternal');
+				redirect('Kerja_sama_eksternal/view_admin');
+			}
+		
+			$hasil = $this->m_kerja_sama_eksternal->update_kerja_sama_eksternal($id_kerja_sama_eksternal, $no_usulan, $keterangan, $id_lembaga_mitra, $id_pengusul, $id_status_kerja_sama, $file_kerja_sama_eksternal['file_name']);
+	
+			if($hasil==false){
+				$this->session->set_flashdata('eror_edit','eror_edit');
+			
+			}else{
+				$this->session->set_flashdata('edit','edit');
+			}
+			@unlink($path.$this->input->post('file_kerja_sama_eksternal_old'));
+
+			redirect('Kerja_sama_eksternal/view_admin');
+
+		}else{
+				$this->session->set_flashdata('loggin_err','loggin_err');
+				redirect('Login/index');
+		}
+		
+
+	}
+	public function hapus_kerja_sama_eksternal($id_kerja_sama_eksternal)
+	{
+	if ($this->session->userdata('logged_in') == true AND $this->session->userdata('id_user_level') == 1) {
+		// $file = $this->input->post('file_kerja_sama_eksternal_old');
+		// echo $file;
+		// die();
+		$this->m_kerja_sama_eksternal->hapus_kerja_sama_eksternal($id_kerja_sama_eksternal);
+		$hasil = $this->m_kerja_sama_eksternal->hapus_kerja_sama_eksternal($id_kerja_sama_eksternal);
+		if($hasil==false){
+			$this->session->set_flashdata('eror_hapus','eror_hapus');
+		}else{
+			$this->session->set_flashdata('hapus','hapus');
+		}
+		$path = './assets/kerja_sama_eksternal/admin/';
+		@unlink($path.$this->input->post('file_kerja_sama_eksternal_old'));
+		redirect('Kerja_sama_eksternal/view_admin');
+		}else{
+			
+			redirect('welcome');
+		}
 	}
 
 	public function view_mitra()

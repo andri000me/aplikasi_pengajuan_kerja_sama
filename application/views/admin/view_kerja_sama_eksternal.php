@@ -16,11 +16,41 @@
     </script>
     <?php } ?>
 
+    <?php if ($this->session->flashdata('edit')){ ?>
+    <script>
+    swal({
+        title: "Success!",
+        text: "Data Berhasil Diedit!",
+        icon: "success"
+    });
+    </script>
+    <?php } ?>
+
+    <?php if ($this->session->flashdata('hapus')){ ?>
+    <script>
+    swal({
+        title: "Success!",
+        text: "Data Berhasil Dihapus!",
+        icon: "success"
+    });
+    </script>
+    <?php } ?>
+
     <?php if ($this->session->flashdata('eror')){ ?>
     <script>
     swal({
         title: "Erorr!",
         text: "Data Gagal Ditambahkan!",
+        icon: "eror"
+    });
+    </script>
+    <?php } ?>
+
+    <?php if ($this->session->flashdata('eror_edit')){ ?>
+    <script>
+    swal({
+        title: "Erorr!",
+        text: "Data Gagal Diedit!",
         icon: "eror"
     });
     </script>
@@ -113,13 +143,56 @@
                                         <td>
                                             <div class="table-resposive">
                                                 <div class="table table-striped table-hover ">
-                                                    <a type="button" class="btn btn-danger"><i
-                                                            class="fas fa-trash"></i></a>
+                                                    <a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#hapus<?php echo  $id_kerja_sama_eksternal ?>"
+                                                        class="btn btn-danger"><i class="fas fa-trash"></i>
+                                                    </a>
                                                 </div>
                                             </div>
                                         </td>
                                     </tr>
-                                    <div class="modal fade" id="edit_kerja_sama_eksternal<?= $id_kerja_sama_eksternal ?>" tabindex="-1"
+                                    <div class="modal fade"
+                                        id="hapus<?= $id_kerja_sama_eksternal ?>" tabindex="-1"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Hapus Data Kerja
+                                                        Sama Eksternal
+                                                    </h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                <form action="<?php echo base_url()?>Kerja_sama_eksternal/hapus_kerja_sama_eksternal/<?=$id_kerja_sama_eksternal?>"
+                                                                  method="post" enctype="multipart/form-data">
+                                                                  <div class="row">
+                                                                      <div class="col-md-12">
+                                                                          <input type="hidden" name="id_kerja_sama_eksternal"
+                                                                              value="<?php echo $id_kerja_sama_eksternal?>" />
+
+                                                                          <input type="hidden" name="file_kerja_sama_eksternal_old"
+                                                                              value="<?=$file_kerja_sama_eksternal?>" hidden>
+                                                                         
+
+                                                                          <p>Apakah kamu yakin ingin menghapus data
+                                                                              ini?</i></b></p>
+                                                                      </div>
+                                                                  </div>
+                                                                  <div class="modal-footer">
+                                                                      <button type="button"
+                                                                          class="btn btn-danger ripple"
+                                                                          data-dismiss="modal">Tidak</button>
+                                                                      <button type="submit"
+                                                                          class="btn btn-success ripple save-category">Ya</button>
+                                                                  </div>
+                                                              </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal fade"
+                                        id="edit_kerja_sama_eksternal<?= $id_kerja_sama_eksternal ?>" tabindex="-1"
                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
@@ -132,13 +205,16 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <form
-                                                        action="<?= base_url(); ?>Kerja_sama_eksternal/input_data_admin"
+                                                        action="<?= base_url(); ?>Kerja_sama_eksternal/edit_data_admin"
                                                         enctype="multipart/form-data" method="POST">
+                                                        <input type="text" name="id_kerja_sama_eksternal"
+                                                            value="<?= $id_kerja_sama_eksternal ?>" hidden>
                                                         <div class="mb-3">
                                                             <label for="no_pengajuan" class="form-label">Nomor
                                                                 Usulan</label>
                                                             <input type="text" class="form-control" id="no_usulan"
-                                                                name="no_usulan" aria-describedby="no_pengajuan" value="<?=$no_usulan?>">
+                                                                name="no_usulan" aria-describedby="no_pengajuan"
+                                                                value="<?=$no_usulan?>">
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="keterangan"
@@ -187,12 +263,18 @@
                                                                 <option value="3">Three</option>
                                                             </select>
                                                         </div>
+                                                        <input type="text" class="form-control"
+                                                                id="file_kerja_sama_eksternal_old"
+                                                                name="file_kerja_sama_eksternal_old"
+                                                                value="<?=$file_kerja_sama_eksternal?>" hidden>
+
                                                         <div class="mb-3">
-                                                            <label for="file_kerja_sama_eksternal" class="form-label">File Kerja Sama
+                                                            <label for="file_kerja_sama_eksternal"
+                                                                class="form-label">File Kerja Sama
                                                                 Eksternal</label>
-                                                            <input type="file" class="form-control" id="file_kerja_sama_eksternal"
-                                                                name="file_kerja_sama_eksternal_old" value="<?=$file_kerja_sama_eksternal?>" hidden>
-                                                            <input type="file" class="form-control" id="file_kerja_sama_eksternal"
+                                                           
+                                                            <input type="file" class="form-control"
+                                                                id="file_kerja_sama_eksternal"
                                                                 name="file_kerja_sama_eksternal">
                                                         </div>
                                                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -201,7 +283,7 @@
                                             </div>
                                         </div>
                                     </div>
-<?php }?>
+                                    <?php }?>
                                 </tbody>
                             </table>
                         </div>

@@ -29,4 +29,14 @@ class M_kerja_sama_eksternal extends CI_Model
          return $hsl;
      }
 
+     function hapus_kerja_sama_eksternal($id_kerja_sama_eksternal){
+        $this->db->trans_start();
+        $this->db->query("DELETE FROM kerja_sama_eksternal WHERE id_kerja_sama_eksternal='$id_kerja_sama_eksternal'");
+         
+        $this->db->trans_complete();
+       if($this->db->trans_status()==true)
+       return true;
+       else
+       return false;
+}
 }
