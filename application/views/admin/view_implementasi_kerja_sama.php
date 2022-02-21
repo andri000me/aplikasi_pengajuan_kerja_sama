@@ -45,7 +45,7 @@
                             <table id="datatablesSimple">
                                 <thead>
                                     <tr>
-                                        <th>Id</th>
+                                        <th>No</th>
                                         <th>Masa Berlaku</th>
                                         <th>Lembaga Mitra</th>
                                         <th>Keterangan</th>
@@ -58,27 +58,32 @@
                                 <tbody>
                                     <?php
                   $id = 0;
-                  foreach($kerja_sama_eksternal->result_array() as $i)
+                  foreach($implementasi_kerja_sama->result_array() as $i)
                   :
                   $id++;
-                  $no_usulan = $i['no_usulan'];
+                  $masa_berlaku = $i['masa_berlaku'];
+                  $nama_mitra = $i['nama_mitra'];
                   $keterangan = $i['keterangan'];
-                  $id_lembaga_mitra = $i['id_lembaga_mitra'];
-                  $id_pengusul = $i['id_pengusul'];
-                  $id_status_kerja_sama = $i['id_status_kerja_sama'];
-                  $file_kerja_sama_eksternal = $i['file_kerja_sama_eksternal'];
+                  $id_jenis_perjanjian = $i['id_jenis_perjanjian'];
+                  $file_implementasi_kerja_sama = $i['file_implementasi_kerja_sama'];
                  
-                  
 
               ?>
                                     <tr>
                                         <td><?= $id ?></td>
-                                        <td><?= $no_usulan ?></td>
+                                        <td><?= $masa_berlaku ?></td>
+                                        <td><?= $nama_mitra ?></td>
                                         <td><?= $keterangan ?></td>
-                                        <td><?= $id_lembaga_mitra ?></td>
-                                        <td><?= $id_pengusul ?></td>
-                                        <td><?= $id_status_kerja_sama ?></td>
-                                        <td><?= $file_kerja_sama_eksternal ?></td>
+                                        <td><?= $id_jenis_perjanjian ?></td>
+                                        <td class="text-center">
+                                            <div class="table-resposive">
+                                                <div class="table table-striped table-hover "><a type="button"
+                                                        class="btn btn-primary"
+                                                        href="<?=base_url();?>assets/implementasi_kerja_sama/admin/<?=$file_implementasi_kerja_sama?>"><i
+                                                            class="fas fa-download"></i></a>
+                                                </div>
+                                            </div>
+                                        </td>
                                         <td>
                                             <div class="table-resposive">
                                                 <div class="table table-striped table-hover ">
@@ -113,8 +118,8 @@
                                     <div class="modal-body">
                                         <form>
                                             <div class="mb-3">
-                                                <label for="no_pengajuan" class="form-label">Nomor Usulan</label>
-                                                <input type="text" class="form-control" id="no_pengajuan"
+                                                <label for="no_pengajuan" class="form-label">Masa Berlaku</label>
+                                                <input type="date" class="form-control" id="masa_berlaku"
                                                     aria-describedby="no_pengajuan">
                                             </div>
                                             <div class="mb-3">
