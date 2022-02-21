@@ -72,17 +72,18 @@
                                 <tbody>
                                     <?php
                   $id = 0;
-                
+                  
                   foreach($kerja_sama_eksternal->result_array() as $i)
                   :
-                 
+                  
                   $no_usulan = $i['no_usulan'];
                   $keterangan = $i['keterangan'];
                   $id_lembaga_mitra = $i['nama_mitra'];
-                  $id_pengusul = $kerja_sama_eksternal_pengusul[$id]["nama_pengusul"];
+                  $id_pengusul = $kerja_sama_eksternal_pengusul[$id]['nama_pengusul'];
                   $id_status_kerja_sama = $i['id_status_kerja_sama'];
                   $file_kerja_sama_eksternal = $i['file_kerja_sama_eksternal'];
                   $id++;
+                 
                   
 
               ?>
@@ -105,7 +106,7 @@
                                             <div class="table-resposive">
                                                 <div class="table table-striped table-hover ">
                                                     <a type="button" class="btn btn-primary"><i
-                                                            class="fas fa-plus"></i></a>
+                                                            class="fas fa-edit"></i></a>
                                                 </div>
                                             </div>
                                         </td>
@@ -150,20 +151,27 @@
                                                 <label for="keterangan" class="form-label">Lembaga Mitra</label>
                                                 <select class="form-select" aria-label="Default select example"
                                                     name="id_lembaga_mitra">
-                                                    <option selected>Open this select menu</option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
+                                                    <?php foreach($user->result_array() as $u)
+                                                    :
+                                                    $id = $u["id"];
+                                                    $nama_mitra = $u["nama_mitra"];
+                                                     ?>
+                                                    <option value="<?= $id ?>"><?= $nama_mitra ?></option>
+                                                   
+                                                    <?php endforeach?>
                                                 </select>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="keterangan" class="form-label">Pengusul</label>
                                                 <select class="form-select" aria-label="Default select example"
                                                     name="id_pengusul">
-                                                    <option selected>Open this select menu</option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
+                                                    <?php foreach($user->result_array() as $u)
+                                                    :
+                                                    $id = $u["id"];
+                                                    $nama_mitra = $u["nama_mitra"];
+                                                     ?>
+                                                    <option value="<?= $id ?>"><?= $nama_mitra ?></option>
+                                                    <?php endforeach?>
                                                 </select>
                                             </div>
                                             <div class="mb-3">

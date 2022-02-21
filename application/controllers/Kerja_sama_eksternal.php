@@ -6,6 +6,7 @@ class Kerja_sama_eksternal extends CI_Controller {
     {
 		parent::__construct();
 		$this->load->model('m_kerja_sama_eksternal');
+		$this->load->model('m_user');
 	}
 
 
@@ -16,7 +17,7 @@ class Kerja_sama_eksternal extends CI_Controller {
 
 		$data['kerja_sama_eksternal'] = $this->m_kerja_sama_eksternal->get_kerja_sama_eksternal();
 		$data['kerja_sama_eksternal_pengusul'] = $this->m_kerja_sama_eksternal->get_kerja_sama_eksternal_pengusul()->result_array();
-		
+		$data['user'] = $this->m_user->get_user();
 		$this->load->view('admin/view_kerja_sama_eksternal', $data);
 
 		}else{

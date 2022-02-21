@@ -12,6 +12,9 @@ class M_user extends CI_Model
             return $hasil;
         }
 
-   
+   function get_user(){
+    $hasil=$this->db->query("SELECT * FROM user");
+    return $hasil;
+   }
 
 }?>
