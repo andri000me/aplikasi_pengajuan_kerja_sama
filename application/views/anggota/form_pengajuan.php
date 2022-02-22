@@ -23,7 +23,7 @@
                         <li class="breadcrumb-item active">form pengajuan</li>
                     </ol>
 
-                    <form>
+                    <form >
                         <div class="mb-3">
                             <label for="no_pengajuan" class="form-label">Nomor Pengajuan</label>
                             <input type="text" class="form-control" id="no_pengajuan" aria-describedby="no_pengajuan">

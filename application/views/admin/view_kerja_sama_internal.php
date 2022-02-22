@@ -92,7 +92,7 @@
                                         <th>Pengusul</th>
                                         <th>Status Kerja Sama </th>
                                         <th>File Kerja Sama Internal</th>
-                                        <th>Aksi</th>
+                                        <th colspan="2">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -133,7 +133,7 @@
                                                 <div class="table table-striped table-hover ">
                                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                                         data-bs-target="#edit_kerja_sama_internal<?= $id_kerja_sama_internal ?>">
-                                                        Edit <i class="fas fa-plus"></i>
+                                                         <i class="fas fa-edit"></i>
                                                     </button>
                                                 </div>
                                             </div>

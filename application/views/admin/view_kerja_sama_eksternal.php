@@ -132,7 +132,7 @@
                                                 <div class="table table-striped table-hover ">
                                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                                         data-bs-target="#edit_kerja_sama_eksternal<?= $id_kerja_sama_eksternal ?>">
-                                                        Edit <i class="fas fa-plus"></i>
+                                                         <i class="fas fa-edit"></i>
                                                     </button>
                                                 </div>
                                             </div>

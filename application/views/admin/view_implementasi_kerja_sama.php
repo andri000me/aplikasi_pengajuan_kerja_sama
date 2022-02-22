@@ -10,8 +10,48 @@
     <script>
     swal({
         title: "Success!",
-        text: "Berhasil Upload !",
+        text: "Data Berhasil Ditambahkan!",
         icon: "success"
+    });
+    </script>
+    <?php } ?>
+
+    <?php if ($this->session->flashdata('edit')){ ?>
+    <script>
+    swal({
+        title: "Success!",
+        text: "Data Berhasil Diedit!",
+        icon: "success"
+    });
+    </script>
+    <?php } ?>
+
+    <?php if ($this->session->flashdata('hapus')){ ?>
+    <script>
+    swal({
+        title: "Success!",
+        text: "Data Berhasil Dihapus!",
+        icon: "success"
+    });
+    </script>
+    <?php } ?>
+
+    <?php if ($this->session->flashdata('eror')){ ?>
+    <script>
+    swal({
+        title: "Erorr!",
+        text: "Data Gagal Ditambahkan!",
+        icon: "eror"
+    });
+    </script>
+    <?php } ?>
+
+    <?php if ($this->session->flashdata('eror_edit')){ ?>
+    <script>
+    swal({
+        title: "Erorr!",
+        text: "Data Gagal Diedit!",
+        icon: "eror"
     });
     </script>
     <?php } ?>
@@ -32,7 +72,7 @@
                     </ol>
                     <ol>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
+                            data-bs-target="#tambah_data_implementasi_kerja_sama">
                             Tambah Data <i class="fas fa-plus"></i>
                         </button>
                     </ol>
@@ -51,7 +91,7 @@
                                         <th>Keterangan</th>
                                         <th>Jenis Perjanjian</th>
                                         <th>File Implementasi Kerja Sama</th>
-                                        <th>Aksi</th>
+                                        <th colspan="2">Aksi</th>
                                     </tr>
                                 </thead>
 
@@ -61,6 +101,7 @@
                   foreach($implementasi_kerja_sama->result_array() as $i)
                   :
                   $id++;
+                  $id_implementasi_kerja_sama = $i['id_implementasi_kerja_sama'];
                   $masa_berlaku = $i['masa_berlaku'];
                   $nama_mitra = $i['nama_mitra'];
                   $keterangan = $i['keterangan'];
@@ -87,25 +128,91 @@
                                         <td>
                                             <div class="table-resposive">
                                                 <div class="table table-striped table-hover ">
-                                                    <a type="button" class="btn btn-primary"><i
-                                                            class="fas fa-plus"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="table-resposive">
-                                                <div class="table table-striped table-hover ">
-                                                    <a type="button" class="btn btn-danger"><i
-                                                            class="fas fa-trash"></i></a>
+                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                        data-bs-target="#edit_data_implementasi_kerja_sama<?= $id_implementasi_kerja_sama ?>">
+                                                         <i class="fas fa-edit"></i>
+                                                    </button>
                                                 </div>
                                             </div>
                                         </td>
                                     </tr>
+                                    <div class="modal fade" id="edit_data_implementasi_kerja_sama<?= $id_implementasi_kerja_sama ?>" tabindex="-1"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Edit Data
+                                                        Implementasi Kerja
+                                                        Sama
+                                                    </h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form
+                                                        action="<?= base_url(); ?>Implementasi_kerja_sama/input_data_admin"
+                                                        enctype="multipart/form-data" method="POST">
+                                                        <div class="mb-3">
+                                                            <label for="masa_berlaku" class="form-label">Masa
+                                                                Berlaku</label>
+                                                            <input type="date" class="form-control" id="masa_berlaku"
+                                                                aria-describedby="masa_berlaku" name="masa_berlaku" value="<?=$masa_berlaku?>">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="id_lembaga_mitra" class="form-label">Lembaga
+                                                                Mitra</label>
+                                                            <select class="form-select"
+                                                                aria-label="Default select example"
+                                                                name="id_lembaga_mitra">
+                                                                <option selected>Open this select menu</option>
+                                                                <option value="1">One</option>
+                                                                <option value="2">Two</option>
+                                                                <option value="3">Three</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="keterangan"
+                                                                class="form-label">Keterangan</label>
+                                                            <input type="text" class="form-control" id="keterangan"
+                                                                name="keterangan" aria-describedby="keterangan" value="<?=$keterangan?>">
+                                                        </div>
+
+                                                        <div class="mb-3">
+                                                            <label for="id_jenis_perjanjian" class="form-label">Jenis
+                                                                Perjanjian</label>
+                                                            <select class="form-select"
+                                                                aria-label="Default select example"
+                                                                name="id_jenis_perjanjian">
+                                                                <option selected>Open this select menu</option>
+                                                                <option value="1">One</option>
+                                                                <option value="2">Two</option>
+                                                                <option value="3">Three</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="file_implementasi_kerja_sama"
+                                                                class="form-label">File Implementasi Kerja Sama</label>
+                                                                <input type="file" class="form-control"
+                                                                id="file_implementasi_kerja_sama_old"
+                                                                name="file_implementasi_kerja_sama_old" hidden>
+                                                            <input type="file" class="form-control"
+                                                                id="file_implementasi_kerja_sama"
+                                                                name="file_implementasi_kerja_sama">
+                                                        </div>
+                                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                                    </form>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
                                     <?php endforeach;?>
                                 </tbody>
                             </table>
                         </div>
                         <!-- Modal Tambah Data Implementasi Kerja Sama -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
+                        <div class="modal fade" id="tambah_data_implementasi_kerja_sama" tabindex="-1"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -116,19 +223,34 @@
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <form>
+                                        <form action="<?= base_url(); ?>Implementasi_kerja_sama/input_data_admin"
+                                            enctype="multipart/form-data" method="POST">
                                             <div class="mb-3">
-                                                <label for="no_pengajuan" class="form-label">Masa Berlaku</label>
+                                                <label for="masa_berlaku" class="form-label">Masa Berlaku</label>
                                                 <input type="date" class="form-control" id="masa_berlaku"
-                                                    aria-describedby="no_pengajuan">
+                                                    aria-describedby="masa_berlaku" name="masa_berlaku">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="id_lembaga_mitra" class="form-label">Lembaga Mitra</label>
+                                                <select class="form-select" aria-label="Default select example"
+                                                    name="id_lembaga_mitra">
+                                                    <option selected>Open this select menu</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="keterangan" class="form-label">Keterangan</label>
-                                                <input type="text" class="form-control" id="keterangan">
+                                                <input type="text" class="form-control" id="keterangan"
+                                                    name="keterangan" aria-describedby="keterangan">
                                             </div>
+
                                             <div class="mb-3">
-                                                <label for="keterangan" class="form-label">Lembaga Mitra</label>
-                                                <select class="form-select" aria-label="Default select example">
+                                                <label for="id_jenis_perjanjian" class="form-label">Jenis
+                                                    Perjanjian</label>
+                                                <select class="form-select" aria-label="Default select example"
+                                                    name="id_jenis_perjanjian">
                                                     <option selected>Open this select menu</option>
                                                     <option value="1">One</option>
                                                     <option value="2">Two</option>
@@ -136,27 +258,11 @@
                                                 </select>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="keterangan" class="form-label">Pengusul</label>
-                                                <select class="form-select" aria-label="Default select example">
-                                                    <option selected>Open this select menu</option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
-                                                </select>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="keterangan" class="form-label">Status Kerja Sama</label>
-                                                <select class="form-select" aria-label="Default select example">
-                                                    <option selected>Open this select menu</option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
-                                                </select>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="keterangan" class="form-label">File Kerja Sama
-                                                    Eksternal</label>
-                                                <input type="file" class="form-control" id="keterangan">
+                                                <label for="file_implementasi_kerja_sama" class="form-label">File
+                                                    Implementasi Kerja Sama</label>
+                                                <input type="file" class="form-control"
+                                                    id="file_implementasi_kerja_sama"
+                                                    name="file_implementasi_kerja_sama">
                                             </div>
                                             <button type="submit" class="btn btn-primary">Submit</button>
                                         </form>
