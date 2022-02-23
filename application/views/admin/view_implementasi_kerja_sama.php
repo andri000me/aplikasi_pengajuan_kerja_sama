@@ -207,6 +207,8 @@
                                                     <form
                                                         action="<?= base_url(); ?>Implementasi_kerja_sama/edit_data_admin"
                                                         enctype="multipart/form-data" method="POST">
+                                                        <input type="hidden" name="id_implementasi_kerja_sama"
+                                                            value="<?php echo $id_implementasi_kerja_sama?>" />
                                                         <div class="mb-3">
                                                             <label for="masa_berlaku" class="form-label">Masa
                                                                 Berlaku</label>
