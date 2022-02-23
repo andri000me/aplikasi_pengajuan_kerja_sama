@@ -6,6 +6,8 @@ class Kerja_sama_internal extends CI_Controller {
     {
 		parent::__construct();
 		$this->load->model('m_kerja_sama_internal');
+		$this->load->model('m_kategori_kerja_sama');
+		$this->load->model('m_status_kerja_sama');
 		$this->load->model('m_user');
 	}
 	public function view_admin()
@@ -13,6 +15,8 @@ class Kerja_sama_internal extends CI_Controller {
 		if ($this->session->userdata('logged_in') == true AND $this->session->userdata('id_user_level') == 1) {
 			$data['kerja_sama_internal'] = $this->m_kerja_sama_internal->get_kerja_sama_internal();
 			$data['kerja_sama_internal_pengusul'] = $this->m_kerja_sama_internal->get_kerja_sama_internal_pengusul()->result_array();
+			$data['kategori_kerja_sama'] = $this->m_kategori_kerja_sama->get_kategori_kerja_sama();
+			$data['status_kerja_sama'] = $this->m_status_kerja_sama->get_status_kerja_sama();
 			$data['user'] = $this->m_user->get_user();
 		$this->load->view('admin/view_kerja_sama_internal', $data);
 
@@ -30,6 +34,7 @@ class Kerja_sama_internal extends CI_Controller {
 		$id_lembaga_mitra = $this->input->post("id_lembaga_mitra");
 		$id_pengusul = $this->input->post("id_pengusul");
 		$id_status_kerja_sama = $this->input->post("id_status_kerja_sama");
+		$id_kategori_kerja_sama = $this->input->post("id_kategori_kerja_sama");
 		$file_name = md5($no_usulan.$keterangan);
 		
 
@@ -66,7 +71,7 @@ class Kerja_sama_internal extends CI_Controller {
 				redirect('Kerja_sama_internal/view_admin');
 			}
 		
-			$hasil = $this->m_kerja_sama_internal->tambah_kerja_sama_internal($no_usulan, $keterangan, $id_lembaga_mitra, $id_pengusul, $id_status_kerja_sama, $file_kerja_sama_internal['file_name']);
+			$hasil = $this->m_kerja_sama_internal->tambah_kerja_sama_internal($no_usulan, $keterangan, $id_lembaga_mitra, $id_pengusul, $id_status_kerja_sama, $file_kerja_sama_internal['file_name'], $id_kategori_kerja_sama );
 	
 			if($hasil==false){
 				$this->session->set_flashdata('eror','eror');

@@ -1,10 +1,10 @@
 <?php
 class M_implementasi_kerja_sama extends CI_Model
 {
-    public function tambah_implementasi_kerja_sama($masa_berlaku, $id_lembaga_mitra,  $keterangan, $id_jenis_perjanjian, $file_implementasi_kerja_sama){
+    public function tambah_implementasi_kerja_sama($masa_berlaku, $id_lembaga_mitra,  $keterangan, $id_bentuk_perjanjian, $file_implementasi_kerja_sama){
         $this->db->trans_start();
-        $this->db->query("INSERT INTO implementasi_kerja_sama(masa_berlaku, id_lembaga_mitra, keterangan, id_jenis_perjanjian, file_implementasi_kerja_sama) 
-        VALUES ('$masa_berlaku', '$id_lembaga_mitra','$keterangan','$id_jenis_perjanjian','$file_implementasi_kerja_sama')");
+        $this->db->query("INSERT INTO implementasi_kerja_sama(masa_berlaku, id_lembaga_mitra, keterangan, id_bentuk_perjanjian, file_implementasi_kerja_sama) 
+        VALUES ('$masa_berlaku', '$id_lembaga_mitra','$keterangan','$id_bentuk_perjanjian','$file_implementasi_kerja_sama')");
         $this->db->trans_complete();
         if($this->db->trans_status()==true)
             return true;

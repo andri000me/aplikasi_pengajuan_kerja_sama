@@ -91,6 +91,7 @@
                                         <th>Lembaga Mitra</th>
                                         <th>Pengusul</th>
                                         <th>Status Kerja Sama </th>
+                                        <th>Kategori Kerja Sama</th>
                                         <th>File Kerja Sama Internal</th>
                                         <th colspan="2">Aksi</th>
                                     </tr>
@@ -108,7 +109,8 @@
                   $keterangan = $i['keterangan'];
                   $id_lembaga_mitra = $i['nama_mitra'];
                   $id_pengusul = $kerja_sama_internal_pengusul[$no_id++]['nama_pengusul'];
-                  $id_status_kerja_sama = $i['id_status_kerja_sama'];
+                  $id_status_kerja_sama = $i['status_kerja_sama'];
+                  $nama_kategori_kerja_sama = $i['nama_kategori_kerja_sama'];
                   $file_kerja_sama_internal = $i['file_kerja_sama_internal'];
                
               ?>
@@ -119,6 +121,7 @@
                                         <td><?= $id_lembaga_mitra ?></td>
                                         <td><?= $id_pengusul ?></td>
                                         <td><?= $id_status_kerja_sama ?></td>
+                                        <td><?= $nama_kategori_kerja_sama ?></td>
                                         <td class="text-center">
                                             <div class="table-resposive">
                                                 <div class="table table-striped table-hover "><a type="button"
@@ -133,7 +136,7 @@
                                                 <div class="table table-striped table-hover ">
                                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                                         data-bs-target="#edit_kerja_sama_internal<?= $id_kerja_sama_internal ?>">
-                                                         <i class="fas fa-edit"></i>
+                                                        <i class="fas fa-edit"></i>
                                                     </button>
                                                 </div>
                                             </div>
@@ -150,8 +153,7 @@
                                         </td>
                                     </tr>
                                     <!-- Modal Edit Kerja Sama Internal -->
-                                    <div class="modal fade"
-                                        id="hapus<?= $id_kerja_sama_internal ?>" tabindex="-1"
+                                    <div class="modal fade" id="hapus<?= $id_kerja_sama_internal ?>" tabindex="-1"
                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
@@ -163,37 +165,36 @@
                                                         aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                <form action="<?php echo base_url()?>Kerja_sama_internal/hapus_kerja_sama_internal/<?=$id_kerja_sama_internal?>"
-                                                                  method="post" enctype="multipart/form-data">
-                                                                  <div class="row">
-                                                                      <div class="col-md-12">
-                                                                          <input type="hidden" name="id_kerja_sama_internal"
-                                                                              value="<?php echo $id_kerja_sama_internal?>" />
+                                                    <form
+                                                        action="<?php echo base_url()?>Kerja_sama_internal/hapus_kerja_sama_internal/<?=$id_kerja_sama_internal?>"
+                                                        method="post" enctype="multipart/form-data">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <input type="hidden" name="id_kerja_sama_internal"
+                                                                    value="<?php echo $id_kerja_sama_internal?>" />
 
-                                                                          <input type="hidden" name="file_kerja_sama_internal_old"
-                                                                              value="<?=$file_kerja_sama_internal?>" hidden>
-                                                                         
+                                                                <input type="hidden" name="file_kerja_sama_internal_old"
+                                                                    value="<?=$file_kerja_sama_internal?>" hidden>
 
-                                                                          <p>Apakah kamu yakin ingin menghapus data
-                                                                              ini?</i></b></p>
-                                                                      </div>
-                                                                  </div>
-                                                                  <div class="modal-footer">
-                                                                      <button type="button"
-                                                                          class="btn btn-danger ripple"
-                                                                          data-dismiss="modal">Tidak</button>
-                                                                      <button type="submit"
-                                                                          class="btn btn-success ripple save-category">Ya</button>
-                                                                  </div>
-                                                              </form>
+
+                                                                <p>Apakah kamu yakin ingin menghapus data
+                                                                    ini?</i></b></p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-danger ripple"
+                                                                data-dismiss="modal">Tidak</button>
+                                                            <button type="submit"
+                                                                class="btn btn-success ripple save-category">Ya</button>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <!-- Modal Edit Kerja Sama Internal -->
-                                    <div class="modal fade"
-                                        id="edit_kerja_sama_internal<?= $id_kerja_sama_internal ?>" tabindex="-1"
-                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="edit_kerja_sama_internal<?= $id_kerja_sama_internal ?>"
+                                        tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -204,8 +205,7 @@
                                                         aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form
-                                                        action="<?= base_url(); ?>Kerja_sama_internal/edit_data_admin"
+                                                    <form action="<?= base_url(); ?>Kerja_sama_internal/edit_data_admin"
                                                         enctype="multipart/form-data" method="POST">
                                                         <input type="text" name="id_kerja_sama_internal"
                                                             value="<?= $id_kerja_sama_internal ?>" hidden>
@@ -257,22 +257,43 @@
                                                             <select class="form-select"
                                                                 aria-label="Default select example"
                                                                 name="id_status_kerja_sama">
-                                                                <option selected>Open this select menu</option>
-                                                                <option value="1">One</option>
-                                                                <option value="2">Two</option>
-                                                                <option value="3">Three</option>
+                                                                <?php foreach($status_kerja_sama as $u)
+                                                    :
+                                                    $id_status_kerja_sama = $u["id_status_kerja_sama"];
+                                                    $nama_status_kerja_sama = $u["status_kerja_sama"];
+                                                     ?>
+                                                                <option value="<?= $id_status_kerja_sama ?>">
+                                                                    <?= $nama_status_kerja_sama ?></option>
+                                                                <?php endforeach?>
                                                             </select>
                                                         </div>
+                                                        <div class="mb-3">
+                                                            <label for="keterangan" class="form-label">Kateogri Kerja
+                                                                Sama</label>
+                                                            <select class="form-select"
+                                                                aria-label="Default select example"
+                                                                name="id_kategori_kerja_sama">
+                                                                <?php foreach($kategori_kerja_sama as $u)
+                                                    :
+                                                    $id_kategori_kerja_sama = $u["id_kategori_kerja_sama"];
+                                                    $nama_kategori_kerja_sama = $u["nama_kategori_kerja_sama"];
+                                                     ?>
+                                                                <option value="<?= $id_kategori_kerja_sama ?>">
+                                                                    <?= $nama_kategori_kerja_sama ?></option>
+                                                                <?php endforeach?>
+                                                            </select>
+                                                        </div>
+
                                                         <input type="text" class="form-control"
-                                                                id="file_kerja_sama_internal_old"
-                                                                name="file_kerja_sama_internal_old"
-                                                                value="<?=$file_kerja_sama_internal?>" hidden>
+                                                            id="file_kerja_sama_internal_old"
+                                                            name="file_kerja_sama_internal_old"
+                                                            value="<?=$file_kerja_sama_internal?>" hidden>
 
                                                         <div class="mb-3">
                                                             <label for="file_kerja_sama_internal"
                                                                 class="form-label">File Kerja Sama
                                                                 Internal</label>
-                                                           
+
                                                             <input type="file" class="form-control"
                                                                 id="file_kerja_sama_internal"
                                                                 name="file_kerja_sama_internal">
@@ -343,10 +364,28 @@
                                                     Sama</label>
                                                 <select class="form-select" aria-label="Default select example"
                                                     name="id_status_kerja_sama">
-                                                    <option selected>Open this select menu</option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
+                                                    <?php foreach($status_kerja_sama as $u)
+                                                    :
+                                                    $id_status_kerja_sama = $u["id_status_kerja_sama"];
+                                                    $nama_status_kerja_sama = $u["status_kerja_sama"];
+                                                     ?>
+                                                    <option value="<?= $id_status_kerja_sama ?>">
+                                                        <?= $nama_status_kerja_sama ?></option>
+                                                    <?php endforeach?>
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="keterangan" class="form-label">Kateogri Kerja Sama</label>
+                                                <select class="form-select" aria-label="Default select example"
+                                                    name="id_kategori_kerja_sama">
+                                                    <?php foreach($kategori_kerja_sama as $u)
+                                                    :
+                                                    $id_kategori_kerja_sama = $u["id_kategori_kerja_sama"];
+                                                    $nama_kategori_kerja_sama = $u["nama_kategori_kerja_sama"];
+                                                     ?>
+                                                    <option value="<?= $id_kategori_kerja_sama ?>">
+                                                        <?= $nama_kategori_kerja_sama ?></option>
+                                                    <?php endforeach?>
                                                 </select>
                                             </div>
                                             <div class="mb-3">

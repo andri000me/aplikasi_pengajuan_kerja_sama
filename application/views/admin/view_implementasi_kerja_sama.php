@@ -130,14 +130,15 @@
                                                 <div class="table table-striped table-hover ">
                                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                                         data-bs-target="#edit_data_implementasi_kerja_sama<?= $id_implementasi_kerja_sama ?>">
-                                                         <i class="fas fa-edit"></i>
+                                                        <i class="fas fa-edit"></i>
                                                     </button>
                                                 </div>
                                             </div>
                                         </td>
                                     </tr>
-                                    <div class="modal fade" id="edit_data_implementasi_kerja_sama<?= $id_implementasi_kerja_sama ?>" tabindex="-1"
-                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal fade"
+                                        id="edit_data_implementasi_kerja_sama<?= $id_implementasi_kerja_sama ?>"
+                                        tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -150,31 +151,39 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <form
-                                                        action="<?= base_url(); ?>Implementasi_kerja_sama/input_data_admin"
+                                                        action="<?= base_url(); ?>Implementasi_kerja_sama/edit_data_admin"
                                                         enctype="multipart/form-data" method="POST">
                                                         <div class="mb-3">
                                                             <label for="masa_berlaku" class="form-label">Masa
                                                                 Berlaku</label>
                                                             <input type="date" class="form-control" id="masa_berlaku"
-                                                                aria-describedby="masa_berlaku" name="masa_berlaku" value="<?=$masa_berlaku?>">
+                                                                aria-describedby="masa_berlaku" name="masa_berlaku"
+                                                                value="<?=$masa_berlaku?>">
                                                         </div>
+                                                        <input type="text" name="id_implementasi_kerja_sama"
+                                                            value="<?=$id_implementasi_kerja_sama?>" hidden>
                                                         <div class="mb-3">
                                                             <label for="id_lembaga_mitra" class="form-label">Lembaga
                                                                 Mitra</label>
                                                             <select class="form-select"
                                                                 aria-label="Default select example"
                                                                 name="id_lembaga_mitra">
-                                                                <option selected>Open this select menu</option>
-                                                                <option value="1">One</option>
-                                                                <option value="2">Two</option>
-                                                                <option value="3">Three</option>
+                                                                <?php foreach($user->result_array() as $u)
+                                                    :
+                                                    $id = $u["id"];
+                                                    $nama_mitra = $u["nama_mitra"];
+                                                     ?>
+                                                                <option value="<?= $id ?>"><?= $nama_mitra ?></option>
+
+                                                                <?php endforeach?>
                                                             </select>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="keterangan"
                                                                 class="form-label">Keterangan</label>
                                                             <input type="text" class="form-control" id="keterangan"
-                                                                name="keterangan" aria-describedby="keterangan" value="<?=$keterangan?>">
+                                                                name="keterangan" aria-describedby="keterangan"
+                                                                value="<?=$keterangan?>">
                                                         </div>
 
                                                         <div class="mb-3">
@@ -182,19 +191,40 @@
                                                                 Perjanjian</label>
                                                             <select class="form-select"
                                                                 aria-label="Default select example"
-                                                                name="id_jenis_perjanjian">
-                                                                <option selected>Open this select menu</option>
-                                                                <option value="1">One</option>
-                                                                <option value="2">Two</option>
-                                                                <option value="3">Three</option>
+                                                                name="id_bentuk_perjanjian">
+                                                                <?php foreach($bentuk_perjanjian as $u)
+                                                    :
+                                                    $id = $u["id_bentuk_perjanjian"];
+                                                    $bentuk_perjanjian = $u["bentuk_perjanjian"];
+                                                     ?>
+                                                                <option value="<?= $id ?>"><?= $bentuk_perjanjian ?></option>
+
+                                                                <?php endforeach?>
+                                                            </select>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="keterangan" class="form-label">Kateogri Kerja
+                                                                Sama</label>
+                                                            <select class="form-select"
+                                                                aria-label="Default select example"
+                                                                name="id_kategori_kerja_sama">
+                                                                <?php foreach($kategori_kerja_sama as $u)
+                                                    :
+                                                    $id_kategori_kerja_sama = $u["id_kategori_kerja_sama"];
+                                                    $nama_kategori_kerja_sama = $u["nama_kategori_kerja_sama"];
+                                                     ?>
+                                                                <option value="<?= $id_kategori_kerja_sama ?>">
+                                                                    <?= $nama_kategori_kerja_sama ?></option>
+                                                                <?php endforeach?>
                                                             </select>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="file_implementasi_kerja_sama"
                                                                 class="form-label">File Implementasi Kerja Sama</label>
-                                                                <input type="file" class="form-control"
+                                                            <input type="text" class="form-control"
                                                                 id="file_implementasi_kerja_sama_old"
-                                                                name="file_implementasi_kerja_sama_old" hidden>
+                                                                name="file_implementasi_kerja_sama_old"
+                                                                value="<?= $file_implementasi_kerja_sama ?>" hidden>
                                                             <input type="file" class="form-control"
                                                                 id="file_implementasi_kerja_sama"
                                                                 name="file_implementasi_kerja_sama">
@@ -255,6 +285,20 @@
                                                     <option value="1">One</option>
                                                     <option value="2">Two</option>
                                                     <option value="3">Three</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="keterangan" class="form-label">Kateogri Kerja Sama</label>
+                                                <select class="form-select" aria-label="Default select example"
+                                                    name="id_kategori_kerja_sama">
+                                                    <?php foreach($kategori_kerja_sama as $u)
+                                                    :
+                                                    $id_kategori_kerja_sama = $u["id_kategori_kerja_sama"];
+                                                    $nama_kategori_kerja_sama = $u["nama_kategori_kerja_sama"];
+                                                     ?>
+                                                    <option value="<?= $id_kategori_kerja_sama ?>">
+                                                        <?= $nama_kategori_kerja_sama ?></option>
+                                                    <?php endforeach?>
                                                 </select>
                                             </div>
                                             <div class="mb-3">

@@ -6,7 +6,7 @@
 </head>
 
 <body class="sb-nav-fixed">
-<?php if ($this->session->flashdata('input')){ ?>
+    <?php if ($this->session->flashdata('input')){ ?>
     <script>
     swal({
         title: "Success!",
@@ -92,6 +92,7 @@
                                         <th>Lembaga Mitra</th>
                                         <th>Pengusul</th>
                                         <th>Status Kerja Sama </th>
+                                        <th>Kategori Kerja Sama</th>
                                         <th>File Kerja Sama Eksternal</th>
                                         <th colspan="2">Aksi</th>
                                     </tr>
@@ -107,7 +108,8 @@
                   $keterangan = $i['keterangan'];
                   $id_lembaga_mitra = $i['nama_mitra'];
                   $id_pengusul =  $kerja_sama_eksternal_pengusul[$no_id++]['nama_pengusul'];
-                  $id_status_kerja_sama = $i['id_status_kerja_sama'];
+                  $id_status_kerja_sama = $i['status_kerja_sama'];
+                  $nama_kategori_kerja_sama = $i['nama_kategori_kerja_sama'];
                   $file_kerja_sama_eksternal = $i['file_kerja_sama_eksternal'];
                   
               ?>
@@ -118,6 +120,7 @@
                                         <td><?= $id_lembaga_mitra ?></td>
                                         <td><?= $id_pengusul ?></td>
                                         <td><?= $id_status_kerja_sama ?></td>
+                                        <td><?=$nama_kategori_kerja_sama?></td>
                                         <td class="text-center">
                                             <div class="table-resposive">
                                                 <div class="table table-striped table-hover "><a type="button"
@@ -132,7 +135,7 @@
                                                 <div class="table table-striped table-hover ">
                                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                                         data-bs-target="#edit_kerja_sama_eksternal<?= $id_kerja_sama_eksternal ?>">
-                                                         <i class="fas fa-edit"></i>
+                                                        <i class="fas fa-edit"></i>
                                                     </button>
                                                 </div>
                                             </div>
@@ -149,8 +152,7 @@
                                         </td>
                                     </tr>
                                     <!-- Modal Hapus Kerja Sama Eksternal -->
-                                    <div class="modal fade"
-                                        id="hapus<?= $id_kerja_sama_eksternal ?>" tabindex="-1"
+                                    <div class="modal fade" id="hapus<?= $id_kerja_sama_eksternal ?>" tabindex="-1"
                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
@@ -162,42 +164,43 @@
                                                         aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                <form action="<?php echo base_url()?>Kerja_sama_eksternal/hapus_kerja_sama_eksternal/<?=$id_kerja_sama_eksternal?>"
-                                                                  method="post" enctype="multipart/form-data">
-                                                                  <div class="row">
-                                                                      <div class="col-md-12">
-                                                                          <input type="hidden" name="id_kerja_sama_eksternal"
-                                                                              value="<?php echo $id_kerja_sama_eksternal?>" />
+                                                    <form
+                                                        action="<?php echo base_url()?>Kerja_sama_eksternal/hapus_kerja_sama_eksternal/<?=$id_kerja_sama_eksternal?>"
+                                                        method="post" enctype="multipart/form-data">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <input type="hidden" name="id_kerja_sama_eksternal"
+                                                                    value="<?php echo $id_kerja_sama_eksternal?>" />
 
-                                                                          <input type="hidden" name="file_kerja_sama_eksternal_old"
-                                                                              value="<?=$file_kerja_sama_eksternal?>" hidden>
-                                                                         
+                                                                <input type="hidden"
+                                                                    name="file_kerja_sama_eksternal_old"
+                                                                    value="<?=$file_kerja_sama_eksternal?>" hidden>
 
-                                                                          <p>Apakah kamu yakin ingin menghapus data
-                                                                              ini?</i></b></p>
-                                                                      </div>
-                                                                  </div>
-                                                                  <div class="modal-footer">
-                                                                      <button type="button"
-                                                                          class="btn btn-danger ripple"
-                                                                          data-dismiss="modal">Tidak</button>
-                                                                      <button type="submit"
-                                                                          class="btn btn-success ripple save-category">Ya</button>
-                                                                  </div>
-                                                              </form>
+
+                                                                <p>Apakah kamu yakin ingin menghapus data
+                                                                    ini?</i></b></p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-danger ripple"
+                                                                data-dismiss="modal">Tidak</button>
+                                                            <button type="submit"
+                                                                class="btn btn-success ripple save-category">Ya</button>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                       <!-- Modal Edit Kerja Sama Eksternal -->
+                                    <!-- Modal Edit Kerja Sama Eksternal -->
                                     <div class="modal fade"
                                         id="edit_kerja_sama_eksternal<?= $id_kerja_sama_eksternal ?>" tabindex="-1"
                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Tambah Data Kerja
+                                                    <h5 class="modal-title" id="exampleModalLabel">Edit Data Kerja
                                                         Sama Eksternal
                                                     </h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
@@ -252,27 +255,47 @@
                                                             </select>
                                                         </div>
                                                         <div class="mb-3">
+                                                            <label for="keterangan" class="form-label">Kateogri Kerja
+                                                                Sama</label>
+                                                            <select class="form-select"
+                                                                aria-label="Default select example"
+                                                                name="id_kategori_kerja_sama">
+                                                                <?php foreach($kategori_kerja_sama as $u)
+                                                    :
+                                                    $id_kategori_kerja_sama = $u["id_kategori_kerja_sama"];
+                                                    $nama_kategori_kerja_sama = $u["nama_kategori_kerja_sama"];
+                                                     ?>
+                                                                <option value="<?= $id_kategori_kerja_sama ?>">
+                                                                    <?= $nama_kategori_kerja_sama ?></option>
+                                                                <?php endforeach?>
+                                                            </select>
+                                                        </div>
+                                                        <div class="mb-3">
                                                             <label for="keterangan" class="form-label">Status Kerja
                                                                 Sama</label>
                                                             <select class="form-select"
                                                                 aria-label="Default select example"
                                                                 name="id_status_kerja_sama">
-                                                                <option selected>Open this select menu</option>
-                                                                <option value="1">One</option>
-                                                                <option value="2">Two</option>
-                                                                <option value="3">Three</option>
+                                                                <?php foreach($status_kerja_sama as $u)
+                                                    :
+                                                    $id_status_kerja_sama = $u["id_status_kerja_sama"];
+                                                    $nama_status_kerja_sama = $u["status_kerja_sama"];
+                                                     ?>
+                                                                <option value="<?= $id_status_kerja_sama ?>">
+                                                                    <?= $nama_status_kerja_sama ?></option>
+                                                                <?php endforeach?>
                                                             </select>
                                                         </div>
                                                         <input type="text" class="form-control"
-                                                                id="file_kerja_sama_eksternal_old"
-                                                                name="file_kerja_sama_eksternal_old"
-                                                                value="<?=$file_kerja_sama_eksternal?>" hidden>
+                                                            id="file_kerja_sama_eksternal_old"
+                                                            name="file_kerja_sama_eksternal_old"
+                                                            value="<?=$file_kerja_sama_eksternal?>" hidden>
 
                                                         <div class="mb-3">
                                                             <label for="file_kerja_sama_eksternal"
                                                                 class="form-label">File Kerja Sama
                                                                 Eksternal</label>
-                                                           
+
                                                             <input type="file" class="form-control"
                                                                 id="file_kerja_sama_eksternal"
                                                                 name="file_kerja_sama_eksternal">
@@ -339,13 +362,31 @@
                                                 </select>
                                             </div>
                                             <div class="mb-3">
+                                                <label for="keterangan" class="form-label">Kateogri Kerja Sama</label>
+                                                <select class="form-select" aria-label="Default select example"
+                                                    name="id_kategori_kerja_sama">
+                                                    <?php foreach($kategori_kerja_sama as $u)
+                                                    :
+                                                    $id_kategori_kerja_sama = $u["id_kategori_kerja_sama"];
+                                                    $nama_kategori_kerja_sama = $u["nama_kategori_kerja_sama"];
+                                                     ?>
+                                                    <option value="<?= $id_kategori_kerja_sama ?>">
+                                                        <?= $nama_kategori_kerja_sama ?></option>
+                                                    <?php endforeach?>
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
                                                 <label for="keterangan" class="form-label">Status Kerja Sama</label>
                                                 <select class="form-select" aria-label="Default select example"
                                                     name="id_status_kerja_sama">
-                                                    <option selected>Open this select menu</option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
+                                                    <?php foreach($status_kerja_sama as $u)
+                                                    :
+                                                    $id_status_kerja_sama = $u["id_status_kerja_sama"];
+                                                    $nama_status_kerja_sama = $u["status_kerja_sama"];
+                                                     ?>
+                                                    <option value="<?= $id_status_kerja_sama ?>">
+                                                        <?= $nama_status_kerja_sama ?></option>
+                                                    <?php endforeach?>
                                                 </select>
                                             </div>
                                             <div class="mb-3">

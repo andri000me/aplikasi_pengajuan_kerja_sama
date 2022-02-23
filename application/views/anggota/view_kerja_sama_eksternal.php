@@ -52,7 +52,7 @@
                   $keterangan = $i['keterangan'];
                   $id_lembaga_mitra = $i['nama_mitra'];
                   $id_pengusul =  $kerja_sama_eksternal_pengusul[$no_id++]['nama_pengusul'];
-                  $id_status_kerja_sama = $i['id_status_kerja_sama'];
+                  $id_status_kerja_sama = $i['status_kerja_sama'];
                   $file_kerja_sama_eksternal = $i['file_kerja_sama_eksternal'];
                   
               ?>
