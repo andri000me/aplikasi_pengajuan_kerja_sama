@@ -89,6 +89,7 @@ class Kerja_sama_eksternal extends CI_Controller {
 		$id_lembaga_mitra = $this->input->post("id_lembaga_mitra");
 		$id_pengusul = $this->input->post("id_pengusul");
 		$id_status_kerja_sama = $this->input->post("id_status_kerja_sama");
+		$id_kategori_kerja_sama = $this->input->post("id_kategori_kerja_sama");
 		$file = $this->input->post('file_kerja_sama_eksternal_old');
 		$file_name = md5($no_usulan.$keterangan);
 		
@@ -129,7 +130,7 @@ class Kerja_sama_eksternal extends CI_Controller {
 				redirect('Kerja_sama_eksternal/view_admin');
 			}
 		
-			$hasil = $this->m_kerja_sama_eksternal->update_kerja_sama_eksternal($id_kerja_sama_eksternal, $no_usulan, $keterangan, $id_lembaga_mitra, $id_pengusul, $id_status_kerja_sama, $file_kerja_sama_eksternal['file_name']);
+			$hasil = $this->m_kerja_sama_eksternal->update_kerja_sama_eksternal($id_kerja_sama_eksternal, $no_usulan, $keterangan, $id_lembaga_mitra, $id_pengusul, $id_status_kerja_sama, $file_kerja_sama_eksternal['file_name'], $id_kategori_kerja_sama);
 	
 			if($hasil==false){
 				$this->session->set_flashdata('eror_edit','eror_edit');

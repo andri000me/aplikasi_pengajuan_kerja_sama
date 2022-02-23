@@ -18,7 +18,7 @@ class Implementasi_kerja_sama extends CI_Controller {
 
 			$data['implementasi_kerja_sama'] = $this->m_implementasi_kerja_sama->get_implementasi_kerja_sama();
 			$data['kategori_kerja_sama'] = $this->m_kategori_kerja_sama->get_kategori_kerja_sama();
-			$data['bentuk_perjanjian'] = $this->m_bentuk_perjanjian->get_bentuk_perjanjian();
+			$data['bentuk_perjanjian_pilih'] = $this->m_bentuk_perjanjian->get_bentuk_perjanjian();
 			$data['user'] = $this->m_user->get_user();
 
 		$this->load->view('admin/view_implementasi_kerja_sama', $data);
@@ -149,6 +149,28 @@ class Implementasi_kerja_sama extends CI_Controller {
 		}
 		
 
+	}
+
+	public function hapus_implementasi_kerja_sama($id_implementasi_kerja_sama)
+	{
+	if ($this->session->userdata('logged_in') == true AND $this->session->userdata('id_user_level') == 1) {
+		// $file = $this->input->post('file_implementasi_kerja_sama_old');
+		// echo $file;
+		// die();
+		$this->m_implementasi_kerja_sama->hapus_implementasi_kerja_sama($id_implementasi_kerja_sama);
+		$hasil = $this->m_implementasi_kerja_sama->hapus_implementasi_kerja_sama($id_implementasi_kerja_sama);
+		if($hasil==false){
+			$this->session->set_flashdata('eror_hapus','eror_hapus');
+		}else{
+			$this->session->set_flashdata('hapus','hapus');
+		}
+		$path = './assets/implementasi_kerja_sama/admin/';
+		@unlink($path.$this->input->post('file_implementasi_kerja_sama_old'));
+		redirect('Implementasi_kerja_sama/view_admin');
+		}else{
+			
+			redirect('welcome');
+		}
 	}
 
 	public function view_mitra()

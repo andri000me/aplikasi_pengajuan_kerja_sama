@@ -26,8 +26,8 @@ class M_kerja_sama_eksternal extends CI_Model
         return $hasil->result_array();
     }
 
-    function update_kerja_sama_eksternal($id, $no_usulan, $keterangan, $id_lembaga_mitra, $id_pengusul, $id_status_kerja_sama, $file_kerja_sama_eksternal){
-        $hsl = $this->db->query("UPDATE kerja_sama_eksternal SET no_usulan='$no_usulan', keterangan='$keterangan' , id_lembaga_mitra='$id_lembaga_mitra', id_pengusul='$id_pengusul', id_status_kerja_sama='$id_status_kerja_sama' , file_kerja_sama_eksternal='$file_kerja_sama_eksternal' WHERE id_kerja_sama_eksternal='$id'");
+    function update_kerja_sama_eksternal($id, $no_usulan, $keterangan, $id_lembaga_mitra, $id_pengusul, $id_status_kerja_sama, $file_kerja_sama_eksternal, $id_kategori_kerja_sama){
+        $hsl = $this->db->query("UPDATE kerja_sama_eksternal SET no_usulan='$no_usulan', keterangan='$keterangan' , id_lembaga_mitra='$id_lembaga_mitra', id_pengusul='$id_pengusul', id_status_kerja_sama='$id_status_kerja_sama' , file_kerja_sama_eksternal='$file_kerja_sama_eksternal', id_kategori_kerja_sama='$id_kategori_kerja_sama' WHERE id_kerja_sama_eksternal='$id'");
          return $hsl;
      }
 

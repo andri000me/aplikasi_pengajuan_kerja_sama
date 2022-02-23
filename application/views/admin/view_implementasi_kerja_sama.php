@@ -97,6 +97,7 @@
 
                                 <tbody>
                                     <?php
+                                  
                   $id = 0;
                   foreach($implementasi_kerja_sama->result_array() as $i)
                   :
@@ -105,7 +106,7 @@
                   $masa_berlaku = $i['masa_berlaku'];
                   $nama_mitra = $i['nama_mitra'];
                   $keterangan = $i['keterangan'];
-                  $id_jenis_perjanjian = $i['id_bentuk_perjanjian'];
+                  $id_jenis_perjanjian = $i['bentuk_perjanjian'];
                   $file_implementasi_kerja_sama = $i['file_implementasi_kerja_sama'];
                  
 
@@ -135,7 +136,60 @@
                                                 </div>
                                             </div>
                                         </td>
+                                        <td>
+                                            <div class="table-resposive">
+                                                <div class="table table-striped table-hover ">
+                                                    <a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#hapus<?php echo  $id_implementasi_kerja_sama ?>"
+                                                        class="btn btn-danger"><i class="fas fa-trash"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </td>
                                     </tr>
+                                    <!-- Modal Hapus Implementasi Kerja Sama -->
+                                    <div class="modal fade" id="hapus<?= $id_implementasi_kerja_sama ?>" tabindex="-1"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Hapus Data
+                                                        Implementasi Kerja Sama
+                                                    </h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form
+                                                        action="<?php echo base_url()?>Implementasi_kerja_sama/hapus_implementasi_kerja_sama/<?=$id_implementasi_kerja_sama?>"
+                                                        method="post" enctype="multipart/form-data">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <input type="hidden" name="id_implementasi_kerja_sama"
+                                                                    value="<?php echo $id_implementasi_kerja_sama?>" />
+
+                                                                <input type="hidden"
+                                                                    name="file_implementasi_kerja_sama_old"
+                                                                    value="<?=$file_implementasi_kerja_sama?>" hidden>
+
+
+                                                                <p>Apakah kamu yakin ingin menghapus data
+                                                                    ini?</i></b></p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-danger ripple"
+                                                                data-dismiss="modal">Tidak</button>
+                                                            <button type="submit"
+                                                                class="btn btn-success ripple save-category">Ya</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Modal Edit Data implementasi kerja sama -->
                                     <div class="modal fade"
                                         id="edit_data_implementasi_kerja_sama<?= $id_implementasi_kerja_sama ?>"
                                         tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -189,15 +243,17 @@
                                                         <div class="mb-3">
                                                             <label for="id_jenis_perjanjian" class="form-label">Jenis
                                                                 Perjanjian</label>
+
                                                             <select class="form-select"
                                                                 aria-label="Default select example"
                                                                 name="id_bentuk_perjanjian">
-                                                                <?php foreach($bentuk_perjanjian as $u)
+                                                                <?php foreach($bentuk_perjanjian_pilih as $u)
                                                     :
                                                     $id = $u["id_bentuk_perjanjian"];
                                                     $bentuk_perjanjian = $u["bentuk_perjanjian"];
                                                      ?>
-                                                                <option value="<?= $id ?>"><?= $bentuk_perjanjian ?></option>
+                                                                <option value="<?= $id ?>"><?= $bentuk_perjanjian ?>
+                                                                </option>
 
                                                                 <?php endforeach?>
                                                             </select>
@@ -264,10 +320,14 @@
                                                 <label for="id_lembaga_mitra" class="form-label">Lembaga Mitra</label>
                                                 <select class="form-select" aria-label="Default select example"
                                                     name="id_lembaga_mitra">
-                                                    <option selected>Open this select menu</option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
+                                                    <?php foreach($user->result_array() as $u)
+                                                    :
+                                                    $id = $u["id"];
+                                                    $nama_mitra = $u["nama_mitra"];
+                                                     ?>
+                                                    <option value="<?= $id ?>"><?= $nama_mitra ?></option>
+
+                                                    <?php endforeach?>
                                                 </select>
                                             </div>
                                             <div class="mb-3">
@@ -275,18 +335,24 @@
                                                 <input type="text" class="form-control" id="keterangan"
                                                     name="keterangan" aria-describedby="keterangan">
                                             </div>
-
                                             <div class="mb-3">
                                                 <label for="id_jenis_perjanjian" class="form-label">Jenis
                                                     Perjanjian</label>
+
                                                 <select class="form-select" aria-label="Default select example"
-                                                    name="id_jenis_perjanjian">
-                                                    <option selected>Open this select menu</option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
+                                                    name="id_bentuk_perjanjian">
+                                                    <?php foreach($bentuk_perjanjian_pilih as $u)
+                                                    :
+                                                    $id = $u["id_bentuk_perjanjian"];
+                                                    $bentuk_perjanjian = $u["bentuk_perjanjian"];
+                                                     ?>
+                                                    <option value="<?= $id ?>"><?= $bentuk_perjanjian ?>
+                                                    </option>
+
+                                                    <?php endforeach; ?>
                                                 </select>
                                             </div>
+
                                             <div class="mb-3">
                                                 <label for="keterangan" class="form-label">Kateogri Kerja Sama</label>
                                                 <select class="form-select" aria-label="Default select example"
