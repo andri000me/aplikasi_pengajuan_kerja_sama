@@ -43,7 +43,7 @@
                         </div>
                         <div class="mb-3">
                         <label for="keterangan" class="form-label">Jenis Pengajuan</label>
-                            <select class="form-select" aria-label="Default select example">
+                            <select class="form-select" aria-label="Default select example" name="">
                                 <option selected>Open this select menu</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>

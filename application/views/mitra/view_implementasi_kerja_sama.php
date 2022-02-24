@@ -50,7 +50,7 @@
                   $masa_berlaku = $i['masa_berlaku'];
                   $nama_mitra = $i['nama_mitra'];
                   $keterangan = $i['keterangan'];
-                  $id_jenis_perjanjian = $i['id_bentuk_perjanjian'];
+                  $id_jenis_perjanjian = $i['bentuk_perjanjian'];
                   $file_implementasi_kerja_sama = $i['file_implementasi_kerja_sama'];
                  
 
