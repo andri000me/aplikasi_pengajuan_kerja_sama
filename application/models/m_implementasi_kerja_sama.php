@@ -15,7 +15,8 @@ class M_implementasi_kerja_sama extends CI_Model
     function get_implementasi_kerja_sama(){
         $hasil=$this->db->query("SELECT * FROM implementasi_kerja_sama 
         JOIN user ON implementasi_kerja_sama.id_lembaga_mitra = user.id
-        JOIN bentuk_perjanjian ON implementasi_kerja_sama.id_bentuk_perjanjian = bentuk_perjanjian.id_bentuk_perjanjian");
+        JOIN bentuk_perjanjian ON implementasi_kerja_sama.id_bentuk_perjanjian = bentuk_perjanjian.id_bentuk_perjanjian
+        JOIN kategori_kerja_sama ON implementasi_kerja_sama.id_kategori_kerja_sama = kategori_kerja_sama.id_kategori_kerja_sama");
         return $hasil;
     }
 

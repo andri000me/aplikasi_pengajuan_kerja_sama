@@ -37,6 +37,7 @@
                                         <th>Lembaga Mitra</th>
                                         <th>Pengusul</th>
                                         <th>Status Kerja Sama </th>
+                                        <th>Kategori Kerja Sama</th>
                                         <th>File Kerja Sama Eksternal</th>
                                     </tr>
                                 </thead>
@@ -53,6 +54,7 @@
                   $id_lembaga_mitra = $i['nama_mitra'];
                   $id_pengusul =  $kerja_sama_eksternal_pengusul[$no_id++]['nama_pengusul'];
                   $id_status_kerja_sama = $i['status_kerja_sama'];
+                  $nama_kategori_kerja_sama = $i['nama_kategori_kerja_sama'];
                   $file_kerja_sama_eksternal = $i['file_kerja_sama_eksternal'];
                   
               ?>
@@ -63,6 +65,7 @@
                                         <td><?= $id_lembaga_mitra ?></td>
                                         <td><?= $id_pengusul ?></td>
                                         <td><?= $id_status_kerja_sama ?></td>
+                                        <td><?=$nama_kategori_kerja_sama?></td>
                                         <td class="text-center">
                                             <div class="table-resposive">
                                                 <div class="table table-striped table-hover "><a type="button"
