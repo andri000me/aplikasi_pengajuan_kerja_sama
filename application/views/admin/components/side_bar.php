@@ -35,9 +35,9 @@
             </a>
             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                 <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href="layout-static.html">Pendidikan</a>
-                    <a class="nav-link" href="layout-sidenav-light.html">Penelitian</a>
-                    <a class="nav-link" href="layout-sidenav-light.html">Pengabdian</a>
+                    <a class="nav-link" href="<?= base_url();?>Kerja_sama_eksternal/filter_admin/1">Pendidikan</a>
+                    <a class="nav-link" href="<?= base_url();?>Kerja_sama_eksternal/filter_admin/2">Penelitian</a>
+                    <a class="nav-link" href="<?= base_url();?>Kerja_sama_eksternal/filter_admin/3">Pengabdian</a>
                 </nav>
             </div>
             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#filter_data"

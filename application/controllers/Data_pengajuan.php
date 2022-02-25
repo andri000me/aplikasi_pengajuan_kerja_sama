@@ -2,7 +2,11 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Data_pengajuan extends CI_Controller {
-
+	public function __construct()
+    {
+		parent::__construct();
+		$this->load->model('m_data_pengajuan');
+	}
 	public function view_admin()
 	{
 
@@ -15,6 +19,10 @@ class Data_pengajuan extends CI_Controller {
 			redirect('Login/index');
 		}
 	}
+
+	
+
+
 
 	public function view_mitra()
 	{
