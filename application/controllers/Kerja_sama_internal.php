@@ -215,6 +215,22 @@ class Kerja_sama_internal extends CI_Controller {
 		}
 	}
 
+	public function filter_mitra($id_kategori_kerja_sama)
+	{
+
+		if ($this->session->userdata('logged_in') == true AND $this->session->userdata('id_user_level') == 2) {
+
+		$data['kerja_sama_internal'] = $this->m_kerja_sama_internal->get_kerja_sama_internal_by_kategori($id_kategori_kerja_sama);
+		$data['kerja_sama_internal_pengusul'] = $this->m_kerja_sama_internal->get_kerja_sama_internal_pengusul_by_kategori($id_kategori_kerja_sama)->result_array();
+
+		$this->load->view('mitra/view_kerja_sama_internal', $data);
+
+		}else{
+			$this->session->set_flashdata('loggin_err','loggin_err');
+			redirect('Login/index');
+		}
+	}
+
 	public function view_anggota()
 	{
 		$data['kerja_sama_internal'] = $this->m_kerja_sama_internal->get_kerja_sama_internal();
