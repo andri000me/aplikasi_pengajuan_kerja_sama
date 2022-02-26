@@ -61,9 +61,9 @@
             </a>
             <div class="collapse" id="filter_data_implementasi" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                 <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href="layout-static.html">Pendidikan</a>
-                    <a class="nav-link" href="layout-sidenav-light.html">Penelitian</a>
-                    <a class="nav-link" href="layout-sidenav-light.html">Pengabdian</a>
+                    <a class="nav-link" href="<?= base_url();?>Implementasi_kerja_sama/filter_mitra/1">Pendidikan</a>
+                    <a class="nav-link" href="<?= base_url();?>Implementasi_kerja_sama/filter_mitra/2">Penelitian</a>
+                    <a class="nav-link" href="<?= base_url();?>Implementasi_kerja_sama/filter_mitra/3">Pengabdian</a>
                 </nav>
             </div>
          
