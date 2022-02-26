@@ -229,4 +229,10 @@ class Implementasi_kerja_sama extends CI_Controller {
 		$this->load->view('anggota/view_implementasi_kerja_sama', $data);
 	}
 
+	public function filter_anggota($id_kategori_kerja_sama)
+	{
+		$data['implementasi_kerja_sama'] = $this->m_implementasi_kerja_sama->get_implementasi_kerja_sama_by_kategori($id_kategori_kerja_sama);
+		$this->load->view('anggota/view_implementasi_kerja_sama', $data);
+	}
+
 }

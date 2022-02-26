@@ -6,7 +6,55 @@
 </head>
 
 <body class="sb-nav-fixed">
+<?php if ($this->session->flashdata('input')){ ?>
+    <script>
+    swal({
+        title: "Success!",
+        text: "Data Berhasil Ditambahkan!",
+        icon: "success"
+    });
+    </script>
+    <?php } ?>
 
+    <?php if ($this->session->flashdata('edit')){ ?>
+    <script>
+    swal({
+        title: "Success!",
+        text: "Data Berhasil Diedit!",
+        icon: "success"
+    });
+    </script>
+    <?php } ?>
+
+    <?php if ($this->session->flashdata('hapus')){ ?>
+    <script>
+    swal({
+        title: "Success!",
+        text: "Data Berhasil Dihapus!",
+        icon: "success"
+    });
+    </script>
+    <?php } ?>
+
+    <?php if ($this->session->flashdata('eror')){ ?>
+    <script>
+    swal({
+        title: "Erorr!",
+        text: "Data Gagal Ditambahkan!",
+        icon: "eror"
+    });
+    </script>
+    <?php } ?>
+
+    <?php if ($this->session->flashdata('eror_edit')){ ?>
+    <script>
+    swal({
+        title: "Erorr!",
+        text: "Data Gagal Diedit!",
+        icon: "eror"
+    });
+    </script>
+    <?php } ?>
     <?php $this->load->view("mitra/components/nav_bar.php") ?>
 
     <div id="layoutSidenav">
@@ -23,18 +71,19 @@
                         <li class="breadcrumb-item active">form pengajuan</li>
                     </ol>
 
-                    <form>
+                    <form action="<?= base_url(); ?>Form_pengajuan/input_data_mitra"
+                                            enctype="multipart/form-data" method="POST">
                         <div class="mb-3">
                             <label for="no_pengajuan" class="form-label">Nomor Pengajuan</label>
-                            <input type="text" class="form-control" id="no_pengajuan" aria-describedby="no_pengajuan">
+                            <input type="text" class="form-control" id="no_pengajuan" aria-describedby="no_pengajuan" name="no_pengajuan">
                         </div>
                         <div class="mb-3">
                             <label for="keterangan" class="form-label">Keterangan</label>
-                            <input type="text" class="form-control" id="keterangan">
+                            <input type="text" class="form-control" id="keterangan" name="keterangan">
                         </div>
                         <div class="mb-3">
                         <label for="keterangan" class="form-label">Bentuk Perjanjian</label>
-                            <select class="form-select" aria-label="Default select example">
+                            <select class="form-select" aria-label="Default select example" name="id_bentuk_perjanjian">
                                 <option selected>Open this select menu</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
@@ -43,7 +92,7 @@
                         </div>
                         <div class="mb-3">
                         <label for="keterangan" class="form-label">Jenis Pengajuan</label>
-                            <select class="form-select" aria-label="Default select example">
+                            <select class="form-select" aria-label="Default select example" name="id_jenis_pengajuan">
                                 <option selected>Open this select menu</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
@@ -52,12 +101,12 @@
                         </div>
                         <div class="mb-3">
                             <label for="keterangan" class="form-label">file data pengajuan</label>
-                            <input type="file" class="form-control" id="keterangan">
+                            <input type="file" class="form-control" id="keterangan" name="file_data_pengajuan">
                         </div>
                         <div class="mb-3">
                         <label for="keterangan" class="form-label">Negara Asal</label>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Open this select menu</option>
+                            <select class="form-select" aria-label="Default select example" name="id_negara_asal_pengajuan">
+                                <option selected>Open this select menu</option >
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
@@ -65,7 +114,7 @@
                         </div>
                         <div class="mb-3">
                         <label for="keterangan" class="form-label">Kategori Kerja Sama</label>
-                            <select class="form-select" aria-label="Default select example">
+                            <select class="form-select" aria-label="Default select example" name="id_kategori_kerjasama">
                                 <option selected>Open this select menu</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
