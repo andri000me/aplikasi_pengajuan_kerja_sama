@@ -37,6 +37,11 @@ class M_kerja_sama_internal extends CI_Model
         return $hasil;
     }
 
+    function jumlah_kerja_sama_internal(){
+        $hsl = $this->db->query("SELECT COUNT(id_kerja_sama_internal) as total_kerja_sama_internal FROM kerja_sama_internal ");
+         return $hsl;
+    }
+
     function update_kerja_sama_internal($id, $no_usulan, $keterangan, $id_lembaga_mitra, $id_pengusul, $id_status_kerja_sama, $file_kerja_sama_internal, $id_kategori_kerja_sama){
         $hsl = $this->db->query("UPDATE kerja_sama_internal SET no_usulan='$no_usulan', keterangan='$keterangan' , id_lembaga_mitra='$id_lembaga_mitra', id_pengusul='$id_pengusul', id_status_kerja_sama='$id_status_kerja_sama' , file_kerja_sama_internal='$file_kerja_sama_internal', id_kategori_kerja_sama='$id_kategori_kerja_sama' WHERE id_kerja_sama_internal='$id'");
          return $hsl;

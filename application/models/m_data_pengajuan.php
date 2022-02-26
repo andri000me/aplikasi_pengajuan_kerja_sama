@@ -24,8 +24,8 @@ class M_data_pengajuan extends CI_Model
         return $hasil;
     }
 
-    function jumlah_data_pengajuan(){
-        $hsl = $this->db->query("SELECT COUNT(id_data_pengajuan) as total_data_pengajuan FROM data_pengajuan ");
+    function jumlah_data_pengajuan($id){
+        $hsl = $this->db->query("SELECT COUNT(id_data_pengajuan) as total_data_pengajuan FROM data_pengajuan WHERE id_user_penerima='$id' ");
          return $hsl;
     }
 

@@ -30,7 +30,7 @@
                                 ?></h2>
                                 </div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <a class="small text-white stretched-link" href="#">View Details</a>
+                                    <a class="small text-white stretched-link" href="<?= base_url();?>Data_pengajuan/view_admin">View Details</a>
                                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                 </div>
                             </div>
@@ -44,31 +44,35 @@
                                 ?></h2>
                                 </div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <a class="small text-white stretched-link" href="#">View Details</a>
+                                    <a class="small text-white stretched-link" href="<?= base_url();?>Implementasi_kerja_sama/view_admin">View Details</a>
                                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xl-3 col-md-6">
                             <div class="card bg-success text-white mb-4">
-                                <div class="card-body">Success Card</div>
+                                <div class="card-body">Kerja Sama Eksternal</div>
                                 <div class="card-body">
-                                    <h2>1</h2>
+                                    <h2><?=
+                                $total_kerja_sama_eksternal[0]['total_kerja_sama_eksternal'];
+                                ?></h2>
                                 </div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <a class="small text-white stretched-link" href="#">View Details</a>
+                                    <a class="small text-white stretched-link" href="<?= base_url();?>Kerja_sama_eksternal/view_admin">View Details</a>
                                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xl-3 col-md-6">
                             <div class="card bg-danger text-white mb-4">
-                                <div class="card-body">Danger Card</div>
+                                <div class="card-body">Kerja Sama Internal</div>
                                 <div class="card-body">
-                                    <h2>1</h2>
+                                    <h2><?=
+                                $total_kerja_sama_internal[0]['total_kerja_sama_internal'];
+                                ?></h2>
                                 </div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <a class="small text-white stretched-link" href="#">View Details</a>
+                                    <a class="small text-white stretched-link" href="<?= base_url();?>Kerja_sama_internal/view_admin">View Details</a>
                                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                 </div>
                             </div>

@@ -7,7 +7,7 @@
 
 <body class="sb-nav-fixed">
 
-<?php $this->load->view("mitra/components/nav_bar.php") ?>
+    <?php $this->load->view("mitra/components/nav_bar.php") ?>
 
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
@@ -23,36 +23,60 @@
                     <div class="row">
                         <div class="col-xl-3 col-md-6">
                             <div class="card bg-primary text-white mb-4">
-                                <div class="card-body">Primary Card</div>
+                                <div class="card-body">Data Pengajuan</div>
+                                <div class="card-body">
+                                    <h2><?=
+                                $total_data_pengajuan[0]['total_data_pengajuan'];
+                                ?></h2>
+                                </div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <a class="small text-white stretched-link" href="#">View Details</a>
+                                    <a class="small text-white stretched-link"
+                                        href="<?= base_url();?>Data_pengajuan/view_mitra">View Details</a>
                                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xl-3 col-md-6">
                             <div class="card bg-warning text-white mb-4">
-                                <div class="card-body">Warning Card</div>
+                                <div class="card-body">Implementasi Kerja Sama</div>
+                                <div class="card-body">
+                                    <h2><?=
+                                $total_implementasi_kerja_sama[0]['total_implementasi_kerja_sama'];
+                                ?></h2>
+                                </div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <a class="small text-white stretched-link" href="#">View Details</a>
+                                    <a class="small text-white stretched-link"
+                                        href="<?= base_url();?>Implementasi_kerja_sama/view_mitra">View Details</a>
                                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xl-3 col-md-6">
                             <div class="card bg-success text-white mb-4">
-                                <div class="card-body">Success Card</div>
+                                <div class="card-body">Kerja Sama Eksternal</div>
+                                <div class="card-body">
+                                    <h2><?=
+                                $total_kerja_sama_eksternal[0]['total_kerja_sama_eksternal'];
+                                ?></h2>
+                                </div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <a class="small text-white stretched-link" href="#">View Details</a>
+                                    <a class="small text-white stretched-link"
+                                        href="<?= base_url();?>Kerja_sama_eksternal/view_mitra">View Details</a>
                                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xl-3 col-md-6">
                             <div class="card bg-danger text-white mb-4">
-                                <div class="card-body">Danger Card</div>
+                                <div class="card-body">Kerja Sama Internal</div>
+                                <div class="card-body">
+                                    <h2><?=
+                                $total_kerja_sama_internal[0]['total_kerja_sama_internal'];
+                                ?></h2>
+                                </div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <a class="small text-white stretched-link" href="#">View Details</a>
+                                    <a class="small text-white stretched-link"
+                                        href="<?= base_url();?>Kerja_sama_internal/view_mitra">View Details</a>
                                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                 </div>
                             </div>
@@ -84,7 +108,7 @@
     </div>
 
     <?php $this->load->view("mitra/components/footer.php") ?>
-    
+
 </body>
 
 </html>
