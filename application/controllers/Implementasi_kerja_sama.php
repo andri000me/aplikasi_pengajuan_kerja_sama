@@ -29,6 +29,23 @@ class Implementasi_kerja_sama extends CI_Controller {
 		}
 	}
 
+	public function filter_admin($id_kategori_kerja_sama)
+	{
+		if ($this->session->userdata('logged_in') == true AND $this->session->userdata('id_user_level') == 1) {
+
+			$data['implementasi_kerja_sama'] = $this->m_implementasi_kerja_sama->get_implementasi_kerja_sama_by_kategori($id_kategori_kerja_sama);
+			$data['kategori_kerja_sama'] = $this->m_kategori_kerja_sama->get_kategori_kerja_sama();
+			$data['bentuk_perjanjian_pilih'] = $this->m_bentuk_perjanjian->get_bentuk_perjanjian();
+			$data['user'] = $this->m_user->get_user();
+
+		$this->load->view('admin/view_implementasi_kerja_sama', $data);
+
+		}else{
+			$this->session->set_flashdata('loggin_err','loggin_err');
+			redirect('Login/index');
+		}
+	}
+
 	public function input_data_admin(){
 
 		if ($this->session->userdata('logged_in') == true AND $this->session->userdata('id_user_level') == 1) {

@@ -238,4 +238,17 @@ class Kerja_sama_internal extends CI_Controller {
 		$this->load->view('anggota/view_kerja_sama_internal', $data);
 	}
 
+	public function filter_anggota($id_kategori_kerja_sama)
+	{
+
+	
+
+		$data['kerja_sama_internal'] = $this->m_kerja_sama_internal->get_kerja_sama_internal_by_kategori($id_kategori_kerja_sama);
+		$data['kerja_sama_internal_pengusul'] = $this->m_kerja_sama_internal->get_kerja_sama_internal_pengusul_by_kategori($id_kategori_kerja_sama)->result_array();
+
+		$this->load->view('anggota/view_kerja_sama_internal', $data);
+
+	
+	}
+
 }
