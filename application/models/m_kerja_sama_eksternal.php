@@ -20,6 +20,7 @@ class M_kerja_sama_eksternal extends CI_Model
         JOIN status_kerja_sama ON kerja_sama_eksternal.id_status_kerja_sama = status_kerja_sama.id_status_kerja_sama");
         return $hasil;
     }
+    
     function get_kerja_sama_eksternal_pengusul(){
         $hasil=$this->db->query("SELECT nama_mitra as nama_pengusul FROM kerja_sama_eksternal 
         JOIN user ON kerja_sama_eksternal.id_pengusul = user.id");

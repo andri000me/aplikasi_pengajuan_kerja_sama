@@ -28,6 +28,11 @@ class M_implementasi_kerja_sama extends CI_Model
         return $hasil;
     }
 
+    function jumlah_implementasi_kerja_sama(){
+        $hsl = $this->db->query("SELECT COUNT(id_implementasi_kerja_sama) as total_implementasi_kerja_sama FROM implementasi_kerja_sama ");
+         return $hsl;
+    }
+
     function update_implementasi_kerja_sama($masa_berlaku, $id_lembaga_mitra,  $keterangan, $id_bentuk_perjanjian, $file_implementasi_kerja_sama, $id_kategori_kerja_sama, $id_implementasi_kerja_sama){
         $hsl = $this->db->query("UPDATE implementasi_kerja_sama SET masa_berlaku='$masa_berlaku',  id_lembaga_mitra='$id_lembaga_mitra',  keterangan='$keterangan',  id_bentuk_perjanjian='$id_bentuk_perjanjian',  file_implementasi_kerja_sama='$file_implementasi_kerja_sama',  id_kategori_kerja_sama='$id_kategori_kerja_sama'  WHERE id_implementasi_kerja_sama='$id_implementasi_kerja_sama'");
          return $hsl;

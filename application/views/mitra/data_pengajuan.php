@@ -22,14 +22,7 @@
                         </li>
                         <li class="breadcrumb-item active">Kerja Sama Eksternal</li>
                     </ol>
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            DataTables is a third party plugin that is used to generate the demo table below. For more
-                            information about DataTables, please visit the
-                            <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>
-                            .
-                        </div>
-                    </div>
+                    
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-table me-1"></i>
@@ -48,35 +41,70 @@
                                         <th>Status Pengajuan</th>
                                         <th>Kategori Kerjasama</th>
                                         <th>Pengirim</th>
-                                        <th>Aksi</th>
+                                        <th colspan="2">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                <?php
+                                  
+                                  $id = 0;
+                                  foreach($data_pengajuan as $i)
+                                  :
+                                  $id++;
+                                  $no_pengajuan = $i['no_pengajuan'];
+                                  $keterangan = $i['keterangan'];
+                                  $bentuk_perjanjian = $i['bentuk_perjanjian'];
+                                  $jenis_pengajuan = $i['jenis_pengajuan'];
+                                  $file_data_pengajuan = $i['file_data_pengajuan'];
+                                  $negara_pengajuan = $i['negara_pengajuan'];
+                                  $status_pengajuan = $i['status_pengajuan'];
+                                  $nama_kategori_kerja_sama = $i['nama_kategori_kerja_sama'];
+                                  $nama_mitra = $i['nama_mitra'];
+                                  $id_data_pengajuan =  $i['id_data_pengajuan'];
+                                 
+                                 
+                
+                              ?>
                                     <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
+                                        <td><?= $no_pengajuan?></td>
+                                        <td><?= $keterangan?></td>
+                                        <td><?=  $bentuk_perjanjian ?></td>
+                                        <td><?=  $jenis_pengajuan ?></td>
+                                        <td class="text-center">
+                                            <div class="table-resposive">
+                                                <div class="table table-striped table-hover "><a type="button"
+                                                        class="btn btn-primary"
+                                                        href="<?=base_url();?>assets/data_pengajuan/mitra/<?=$file_data_pengajuan?>"><i
+                                                            class="fas fa-download"></i></a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><?=  $negara_pengajuan ?></td>
+                                        <td><?=  $status_pengajuan ?></td>
+                                        <td><?=  $nama_kategori_kerja_sama ?></td>
+                                        <td><?= $nama_mitra ?></td>
                                         <td>
                                             <div class="table-resposive">
                                                 <div class="table table-striped table-hover ">
-                                                    <a type="button" class="btn btn-primary"><i
-                                                            class="fas fa-plus"></i></a>
+                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                        data-bs-target="#edit_kerja_sama_eksternal<?= $id_data_pengajuan ?>">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
                                                 </div>
                                             </div>
+                                        </td>
+                                        <td>
                                             <div class="table-resposive">
                                                 <div class="table table-striped table-hover ">
-                                                    <a type="button" class="btn btn-danger"><i
-                                                            class="fas fa-trash"></i></a>
+                                                    <a href="" data-bs-toggle="modal"
+                                                        data-bs-target="#hapus<?php echo  $id_data_pengajuan ?>"
+                                                        class="btn btn-danger"><i class="fas fa-trash"></i>
+                                                    </a>
                                                 </div>
                                             </div>
                                         </td>
                                     </tr>
+                                    <?php endforeach?>
                                 </tbody>
                             </table>
                         </div>

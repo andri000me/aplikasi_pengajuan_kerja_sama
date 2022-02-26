@@ -10,7 +10,7 @@
     <script>
     swal({
         title: "Success!",
-        text: "Data Berhasil Ditambahkan!",
+        text: "Pengajuan Berhasil Diajukan!",
         icon: "success"
     });
     </script>
@@ -37,6 +37,16 @@
     <?php } ?>
 
     <?php if ($this->session->flashdata('eror')){ ?>
+    <script>
+    swal({
+        title: "Erorr!",
+        text: "Data Gagal Ditambahkan!",
+        icon: "eror"
+    });
+    </script>
+    <?php } ?>
+
+    <?php if ($this->session->flashdata('error_file_data_pengajuan')){ ?>
     <script>
     swal({
         title: "Erorr!",
