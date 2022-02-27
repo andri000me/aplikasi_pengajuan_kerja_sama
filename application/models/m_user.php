@@ -22,4 +22,9 @@ class M_user extends CI_Model
     return $hasil;
    }
 
+   function update_user($username, $password, $email, $no_hp, $alamat_mitra, $id){
+    $hsl = $this->db->query("UPDATE user SET username='$username', password='$password' , email='$email', no_hp='$no_hp', alamat_mitra='$alamat_mitra' WHERE id='$id'");
+     return $hsl;
+ }
+
 }?>
