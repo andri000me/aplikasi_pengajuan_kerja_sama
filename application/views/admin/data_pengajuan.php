@@ -182,7 +182,6 @@
                                                             <select class="form-select"
                                                                 aria-label="Default select example"
                                                                 name="id_status_pengajuan">
-                                                                <option selected>Open this select menu</option>
                                                                 <option value="1">Diterima</option>
                                                                 <option value="2">Tidak Diterima</option>
                                                                 

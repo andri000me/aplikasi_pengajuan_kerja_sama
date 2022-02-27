@@ -95,7 +95,7 @@
 
    
 ?>
-                    <form action="<?= base_url(); ?>Settings/edit_data_mitra"
+                    <form action="<?= base_url(); ?>Settings/edit_data_mitra/<?= $id ?>"
                                             enctype="multipart/form-data" method="POST">
                         <div class="mb-3">
                             <label for="username" class="form-label">Username</label>

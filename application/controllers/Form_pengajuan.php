@@ -6,6 +6,7 @@ class Form_pengajuan extends CI_Controller {
     {
 		parent::__construct();
 		$this->load->model('m_data_pengajuan');
+		$this->load->model('m_bentuk_perjanjian');
 	}
 	public function form_pengajuan_admin()
 	{

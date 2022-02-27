@@ -77,6 +77,47 @@ class Settings extends CI_Controller {
             }
     }
 
+    public function edit_data_mitra($id){
+        if ($this->session->userdata('logged_in') == true AND $this->session->userdata('id_user_level') == 2) {
+           
+            $username = $this->input->post("username");
+            $password = $this->input->post("password");
+            $email =  $this->input->post("email");
+            $no_hp =  $this->input->post("no_hp");
+            $alamat_mitra =  $this->input->post("alamat_mitra");
+
+
+            // echo $username;
+            // echo "<br>";
+            // echo $password;
+            // echo "<br>";
+            // echo $email;
+            // echo "<br>";
+            // echo $no_hp;
+            // echo "<br>";
+            // echo $alamat_mitra;
+            // echo "<br>";
+            // echo $id;
+            // die();
+
+            $hasil = $this->m_user->update_user($username, $password, $email, $no_hp, $alamat_mitra, $id);
+	
+			if($hasil==false){
+				$this->session->set_flashdata('eror_edit','eror_edit');
+			
+			}else{
+				$this->session->set_flashdata('edit','edit');
+			}
+		
+
+			redirect('Settings/profile_mitra');
+
+            }else{
+                $this->session->set_flashdata('loggin_err','loggin_err');
+                redirect('Login/index');
+            }
+    }
+
 
     
 }

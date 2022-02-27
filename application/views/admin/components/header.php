@@ -3,11 +3,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>Dashboard - SB Admin</title>
+<title>BKPPU - UIGM</title>
 <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
 <link href="<?= base_url() ?>assets/css/styles.css" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
 <script src="<?= base_url() ?>node_modules/sweetalert/dist/sweetalert.min.js"></script>
+
 <?php if ($this->session->flashdata('input')){ ?>
     <script>
     swal({
