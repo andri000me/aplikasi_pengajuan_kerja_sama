@@ -8,6 +8,7 @@
 <link href="<?= base_url() ?>assets/css/styles.css" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
 <script src="<?= base_url() ?>node_modules/sweetalert/dist/sweetalert.min.js"></script>
+<script>const BASE_URL='<?= base_url(); ?>'; </script>
 
 <?php if ($this->session->flashdata('input')){ ?>
     <script>

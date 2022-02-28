@@ -29,6 +29,11 @@ class M_data_pengajuan extends CI_Model
          return $hsl;
     }
 
+    function jumlah_data_pengajuan_all(){
+        $hsl = $this->db->query("SELECT COUNT(id_data_pengajuan) as total_data_pengajuan FROM data_pengajuan");
+         return $hsl;
+    }
+
     function update_status_data_pengajuan($id_status_pengajuan, $id_data_pengajuan){
         $hsl = $this->db->query("UPDATE data_pengajuan SET id_status_pengajuan='$id_status_pengajuan'  WHERE id_data_pengajuan='$id_data_pengajuan'");
          return $hsl;

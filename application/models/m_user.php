@@ -27,4 +27,46 @@ class M_user extends CI_Model
      return $hsl;
  }
 
+ function count_all_table($id){
+    $hasil=$this->db->query("SELECT  (
+        SELECT COUNT(*)
+        FROM   kerja_sama_eksternal
+        ) AS count1,
+        (
+        SELECT COUNT(*)
+        FROM   kerja_sama_internal
+        ) AS count2,
+        (
+        SELECT COUNT(*)
+        FROM   implementasi_kerja_sama
+        ) AS count3,
+        (
+        SELECT COUNT(*)
+        FROM   data_pengajuan WHERE id_user_penerima='$id'
+        ) AS count4
+FROM    dual");
+    return $hasil;
+ }
+
+ function count_all_table_anngota($id){
+    $hasil=$this->db->query("SELECT  (
+        SELECT COUNT(*)
+        FROM   kerja_sama_eksternal
+        ) AS count1,
+        (
+        SELECT COUNT(*)
+        FROM   kerja_sama_internal
+        ) AS count2,
+        (
+        SELECT COUNT(*)
+        FROM   implementasi_kerja_sama
+        ) AS count3,
+        (
+        SELECT COUNT(*)
+        FROM   data_pengajuan
+        ) AS count4
+FROM    dual");
+    return $hasil;
+ }
+
 }?>

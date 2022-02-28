@@ -7,12 +7,23 @@ class Form_pengajuan extends CI_Controller {
 		parent::__construct();
 		$this->load->model('m_data_pengajuan');
 		$this->load->model('m_bentuk_perjanjian');
+		$this->load->model('m_kategori_kerja_sama');
+		$this->load->model('m_status_kerja_sama');
+		$this->load->model('m_negara_asal_pengajuan');
+		$this->load->model('m_jenis_pengajuan');
+		$this->load->model('m_user');
 	}
 	public function form_pengajuan_admin()
 	{
         if ($this->session->userdata('logged_in') == true AND $this->session->userdata('id_user_level') == 1) {
+		$data['kategori_kerja_sama'] = $this->m_kategori_kerja_sama->get_kategori_kerja_sama();
+		$data['status_kerja_sama'] = $this->m_status_kerja_sama->get_status_kerja_sama();
+		$data['bentuk_perjanjian'] = $this->m_bentuk_perjanjian->get_bentuk_perjanjian();
+		$data['negara_asal_pengajuan'] = $this->m_negara_asal_pengajuan->get_negara_asal_pengajuan();
+		$data['jenis_pengajuan'] = $this->m_jenis_pengajuan->get_jenis_pengajuan();
+		$data['user'] = $this->m_user->get_user();
 
-        $this->load->view('admin/form_pengajuan');
+        $this->load->view('admin/form_pengajuan', $data);
 
         }else{
             $this->session->set_flashdata('loggin_err','loggin_err');
@@ -95,8 +106,14 @@ class Form_pengajuan extends CI_Controller {
 	public function form_pengajuan_mitra()
 	{
         if ($this->session->userdata('logged_in') == true AND $this->session->userdata('id_user_level') == 2) {
+		$data['kategori_kerja_sama'] = $this->m_kategori_kerja_sama->get_kategori_kerja_sama();
+		$data['status_kerja_sama'] = $this->m_status_kerja_sama->get_status_kerja_sama();
+		$data['bentuk_perjanjian'] = $this->m_bentuk_perjanjian->get_bentuk_perjanjian();
+		$data['negara_asal_pengajuan'] = $this->m_negara_asal_pengajuan->get_negara_asal_pengajuan();
+		$data['jenis_pengajuan'] = $this->m_jenis_pengajuan->get_jenis_pengajuan();
+		$data['user'] = $this->m_user->get_user();
 
-        $this->load->view('mitra/form_pengajuan');
+        $this->load->view('mitra/form_pengajuan', $data);
 
         }else{
             $this->session->set_flashdata('loggin_err','loggin_err');
