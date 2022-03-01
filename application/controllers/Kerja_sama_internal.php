@@ -84,7 +84,7 @@ class Kerja_sama_internal extends CI_Controller {
 			if($file_kerja_sama_internal_upload){
 				$file_kerja_sama_internal = $this->upload->data();
 			}else{
-				$this->session->set_flashdata('error_file_kerja_sama_internal','error_file_kerja_sama_internal');
+				$this->session->set_flashdata('error_file','error_file');
 				redirect('Kerja_sama_internal/view_admin');
 			}
 		
@@ -154,7 +154,7 @@ class Kerja_sama_internal extends CI_Controller {
 			if($file_kerja_sama_internal_upload){
 				$file_kerja_sama_internal = $this->upload->data();
 			}else{
-				$this->session->set_flashdata('error_file_kerja_sama_internal','error_file_kerja_sama_internal');
+				$this->session->set_flashdata('error_file','error_file');
 				redirect('Kerja_sama_internal/view_admin');
 			}
 		

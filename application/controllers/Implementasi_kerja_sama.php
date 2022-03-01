@@ -82,7 +82,7 @@ class Implementasi_kerja_sama extends CI_Controller {
 			if($file_implementasi_kerja_sama_upload){
 				$file_implementasi_kerja_sama = $this->upload->data();
 			}else{
-				$this->session->set_flashdata('error_file_implementasi_kerja_sama','error_file_implementasi_kerja_sama');
+				$this->session->set_flashdata('error_file','error_file');
 				redirect('implementasi_kerja_sama/view_admin');
 			}
 		
@@ -146,7 +146,7 @@ class Implementasi_kerja_sama extends CI_Controller {
 			if($file_implementasi_kerja_sama_upload){
 				$file_implementasi_kerja_sama = $this->upload->data();
 			}else{
-				$this->session->set_flashdata('error_file_implementasi_kerja_sama','error_file_implementasi_kerja_sama');
+				$this->session->set_flashdata('error_fil','error_file');
 				redirect('implementasi_kerja_sama/view_admin');
 			}
 		

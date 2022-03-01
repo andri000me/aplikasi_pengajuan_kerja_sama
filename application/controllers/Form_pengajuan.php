@@ -81,7 +81,7 @@ class Form_pengajuan extends CI_Controller {
 			if($file_data_pengajuan_upload){
 				$file_data_pengajuan = $this->upload->data();
 			}else{
-				$this->session->set_flashdata('error_file_data_pengajuan','error_file_data_pengajuan');
+				$this->session->set_flashdata('error_file','error_file');
 				redirect('data_pengajuan/view_admin');
 			}
 		
@@ -171,7 +171,7 @@ class Form_pengajuan extends CI_Controller {
 			if($file_data_pengajuan_upload){
 				$file_data_pengajuan = $this->upload->data();
 			}else{
-				$this->session->set_flashdata('error_file_data_pengajuan','error_file_data_pengajuan');
+				$this->session->set_flashdata('error_file','error_file');
 				redirect('data_pengajuan/view_mitra');
 			}
 		

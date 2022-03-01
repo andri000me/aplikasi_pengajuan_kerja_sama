@@ -64,7 +64,7 @@ class Kerja_sama_eksternal extends CI_Controller {
 		$this->load->library('upload');
 		$config['upload_path'] = './assets/kerja_sama_eksternal/admin';
 		$config['allowed_types'] = 'pdf|docx';
-		$config['max_size'] = '4048';  //2MB max
+		$config['max_size'] = '1048';  //2MB max
 		$config['max_width'] = '4480'; // pixel
 		$config['max_height'] = '4480'; // pixel
 		$config['file_name'] = $file_name;
@@ -74,7 +74,7 @@ class Kerja_sama_eksternal extends CI_Controller {
 			if($file_kerja_sama_eksternal_upload){
 				$file_kerja_sama_eksternal = $this->upload->data();
 			}else{
-				$this->session->set_flashdata('error_file_kerja_sama_eksternal','error_file_kerja_sama_eksternal');
+				$this->session->set_flashdata('error_file','error_file');
 				redirect('Kerja_sama_eksternal/view_admin');
 			}
 		
@@ -144,7 +144,7 @@ class Kerja_sama_eksternal extends CI_Controller {
 			if($file_kerja_sama_eksternal_upload){
 				$file_kerja_sama_eksternal = $this->upload->data();
 			}else{
-				$this->session->set_flashdata('error_file_kerja_sama_eksternal','error_file_kerja_sama_eksternal');
+				$this->session->set_flashdata('error_file','error_file');
 				redirect('Kerja_sama_eksternal/view_admin');
 			}
 		

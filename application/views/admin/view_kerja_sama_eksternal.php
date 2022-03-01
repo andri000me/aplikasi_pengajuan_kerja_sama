@@ -41,7 +41,17 @@
     swal({
         title: "Erorr!",
         text: "Data Gagal Ditambahkan!",
-        icon: "eror"
+        icon: "error"
+    });
+    </script>
+    <?php } ?>
+
+    <?php if ($this->session->flashdata('error_file')){ ?>
+    <script>
+    swal({
+        title: "Erorr!",
+        text: "Data File Terlalu Besar !",
+        icon: "error"
     });
     </script>
     <?php } ?>
@@ -51,10 +61,11 @@
     swal({
         title: "Erorr!",
         text: "Data Gagal Diedit!",
-        icon: "eror"
+        icon: "error"
     });
     </script>
     <?php } ?>
+    
     <?php $this->load->view("admin/components/nav_bar.php") ?>
 
     <div id="layoutSidenav">

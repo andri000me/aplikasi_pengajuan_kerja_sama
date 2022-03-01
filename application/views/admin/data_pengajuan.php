@@ -46,11 +46,11 @@
     </script>
     <?php } ?>
 
-    <?php if ($this->session->flashdata('error_file_data_pengajuan')){ ?>
+    <?php if ($this->session->flashdata('eror_file')){ ?>
     <script>
     swal({
         title: "Erorr!",
-        text: "Data Gagal Ditambahkan!",
+        text: "Data File Terlalu Besar !",
         icon: "eror"
     });
     </script>
