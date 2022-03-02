@@ -6,7 +6,16 @@
 </head>
 
 <body class="sb-nav-fixed">
-
+<?php if ($this->session->flashdata('login_success')){ ?>
+    <script>
+    swal({
+        title: "Success!",
+        text: "Login Berhasil, Selamat Datang Admin !",
+        icon: "success",
+        timer: 950
+    });
+    </script>
+    <?php } ?>
     <?php $this->load->view("admin/components/nav_bar.php") ?>
 
     <div id="layoutSidenav">

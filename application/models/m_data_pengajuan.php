@@ -38,4 +38,15 @@ class M_data_pengajuan extends CI_Model
         $hsl = $this->db->query("UPDATE data_pengajuan SET id_status_pengajuan='$id_status_pengajuan'  WHERE id_data_pengajuan='$id_data_pengajuan'");
          return $hsl;
      }
+
+     function hapus_data_pengajuan($id_data_pengajuan){
+        $this->db->trans_start();
+        $this->db->query("DELETE FROM data_pengajuan WHERE id_data_pengajuan='$id_data_pengajuan'");
+         
+        $this->db->trans_complete();
+       if($this->db->trans_status()==true)
+       return true;
+       else
+       return false;
+    }
 }

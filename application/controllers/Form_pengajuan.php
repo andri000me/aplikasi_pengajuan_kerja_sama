@@ -21,7 +21,7 @@ class Form_pengajuan extends CI_Controller {
 		$data['bentuk_perjanjian'] = $this->m_bentuk_perjanjian->get_bentuk_perjanjian();
 		$data['negara_asal_pengajuan'] = $this->m_negara_asal_pengajuan->get_negara_asal_pengajuan();
 		$data['jenis_pengajuan'] = $this->m_jenis_pengajuan->get_jenis_pengajuan();
-		$data['user'] = $this->m_user->get_user();
+		$data['user'] = $this->m_user->get_user_mitra();
 
         $this->load->view('admin/form_pengajuan', $data);
 
@@ -66,10 +66,10 @@ class Form_pengajuan extends CI_Controller {
 		// echo "<br>";
 		// die();
 
-		$path = './assets/data_pengajuan/admin/';
+		$path = './assets/data_pengajuan/mitra/';
 
 		$this->load->library('upload');
-		$config['upload_path'] = './assets/data_pengajuan/admin';
+		$config['upload_path'] = './assets/data_pengajuan/mitra';
 		$config['allowed_types'] = 'pdf|docx';
 		$config['max_size'] = '4048';  //2MB max
 		$config['max_width'] = '4480'; // pixel
@@ -156,10 +156,10 @@ class Form_pengajuan extends CI_Controller {
 		// echo "<br>";
 		// die();
 
-		$path = './assets/data_pengajuan/mitra/';
+		$path = './assets/data_pengajuan/admin/';
 
 		$this->load->library('upload');
-		$config['upload_path'] = './assets/data_pengajuan/mitra';
+		$config['upload_path'] = './assets/data_pengajuan/admin';
 		$config['allowed_types'] = 'pdf|docx';
 		$config['max_size'] = '4048';  //2MB max
 		$config['max_width'] = '4480'; // pixel

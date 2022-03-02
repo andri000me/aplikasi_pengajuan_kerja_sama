@@ -104,6 +104,50 @@
                                             </div>
                                         </td>
                                     </tr>
+
+                                    
+                                    <!-- Modal Hapus Data Pengajuan -->
+                                    <div class="modal fade" id="hapus<?= $id_data_pengajuan ?>" tabindex="-1"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Hapus Data
+                                                        Pengajuan
+                                                    </h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form
+                                                        action="<?php echo base_url()?>Data_pengajuan/hapus_data_pengajuan_mitra/<?=$id_data_pengajuan?>"
+                                                        method="post" enctype="multipart/form-data">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <input type="hidden" name="id_data_pengajuan"
+                                                                    value="<?php echo $id_data_pengajuan?>" />
+
+                                                                <input type="hidden"
+                                                                    name="file_data_pengajuan_old"
+                                                                    value="<?=$file_data_pengajuan?>" hidden>
+
+
+                                                                <p>Apakah kamu yakin ingin menghapus data
+                                                                    ini?</i></b></p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-danger ripple"
+                                                                data-dismiss="modal">Tidak</button>
+                                                            <button type="submit"
+                                                                class="btn btn-success ripple save-category">Ya</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <!-- Modal Edit Pengajuan -->
                                     <div class="modal fade" id="edit_data_pengajuan<?= $id_data_pengajuan ?>"
                                         tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

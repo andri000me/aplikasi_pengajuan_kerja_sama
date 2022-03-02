@@ -9,8 +9,8 @@
     <meta name="author" content="" />
     <title>BKPPU - UIGM</title>
     <link href="<?= base_url() ?>assets/css/styles.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous">
-    </script>
+    <link rel="icon"href="<?= base_url() ?>assets/img/logo.png" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     <script src="<?= base_url() ?>node_modules/sweetalert/dist/sweetalert.min.js"></script>
     
 </head>
@@ -60,6 +60,9 @@
                         <div class="col-lg-5">
                             <div class="card shadow-lg border-0 rounded-lg mt-5">
                                 <div class="card-header">
+                                <center>
+                                <img src="<?= base_url();?>assets/img/uigm.png" alt="Logo UIGM">
+                                </center>
                                     <h3 class="text-center font-weight-light my-4">Login BKPPU - UIGM</h3>
                                 </div>
                                 <div class="card-body">

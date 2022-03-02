@@ -17,6 +17,11 @@ class M_user extends CI_Model
     return $hasil;
    }
 
+   function get_user_mitra(){
+    $hasil=$this->db->query("SELECT * FROM user WHERE NOT id= 3");
+    return $hasil;
+   }
+
    function get_user_by_id($id){
     $hasil=$this->db->query("SELECT * FROM user WHERE id='$id'");
     return $hasil;

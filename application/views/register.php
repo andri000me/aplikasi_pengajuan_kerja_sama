@@ -11,6 +11,7 @@
     <link href="<?= base_url() ?>assets/css/styles.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous">
     </script>
+    <link rel="icon" href="<?= base_url() ?>assets/img/logo.png" />
     <script src="<?= base_url() ?>node_modules/sweetalert/dist/sweetalert.min.js"></script>
     
 </head>
@@ -33,6 +34,9 @@
                         <div class="col-lg-7">
                             <div class="card shadow-lg border-0 rounded-lg mt-5">
                                 <div class="card-header">
+                                <center>
+                                <img src="<?= base_url();?>assets/img/uigm.png" alt="Logo UIGM">
+                                </center>
                                     <h3 class="text-center font-weight-light my-4">Buat Akun BKPPU - UIGM</h3>
                                 </div>
                                 <div class="card-body">
@@ -85,8 +89,7 @@
                                     </form>
                                 </div>
                                 <div class="card-footer text-center py-3">
-                                    <div class="small"><a href="<?= base_url(); ?>Login">Have an account? Go to
-                                            login</a></div>
+                                    <div class="small"><a href="<?= base_url(); ?>Login">Sudah Punya Akun? Silahkan Login</a></div>
                                 </div>
                             </div>
                         </div>
