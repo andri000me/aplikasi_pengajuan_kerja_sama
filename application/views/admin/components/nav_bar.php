@@ -1,6 +1,6 @@
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-secondary">
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" href="index.html">
+        <a class="navbar-brand ps-3" href="<?= base_url();?>Dashboard/dashboard_admin">
         <img src="<?= base_url() ?>assets/img/uigm.png" width="80px" alt="">
          </a>
         
