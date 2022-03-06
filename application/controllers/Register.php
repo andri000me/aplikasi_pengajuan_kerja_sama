@@ -39,6 +39,8 @@ class Register extends CI_Controller {
 			$this->session->set_flashdata('password_err','password_err');
 			redirect('register/index');
 		}
+
+		
     }
     
 
