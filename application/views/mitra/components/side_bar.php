@@ -26,6 +26,10 @@
                 <div class="sb-nav-link-icon"><i class="fas fa-archive"></i></div>
                 Data Pengajuan
             </a>
+            <a class="nav-link" href="<?= base_url();?>Data_pengajuan/view_mitra_data_terajukan">
+                <div class="sb-nav-link-icon"><i class="fas fa-archive"></i></div>
+                Data Terajukan
+            </a>
             <div class="sb-sidenav-menu-heading">Filter Data</div>
             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts"
                 aria-expanded="false" aria-controls="collapseLayouts">

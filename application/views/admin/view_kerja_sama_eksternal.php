@@ -243,10 +243,10 @@
                                                                 aria-label="Default select example"
                                                                 name="id_lembaga_mitra">
                                                                 <?php foreach($user->result_array() as $u)
-                                                    :
-                                                    $id = $u["id"];
-                                                    $nama_mitra = $u["nama_mitra"];
-                                                     ?>
+                                                                :
+                                                                $id = $u["id"];
+                                                                $nama_mitra = $u["nama_mitra"];
+                                                                ?>
                                                                 <option value="<?= $id ?>"><?= $nama_mitra ?></option>
 
                                                                 <?php endforeach?>

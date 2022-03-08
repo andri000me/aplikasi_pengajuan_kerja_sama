@@ -23,6 +23,22 @@ class Data_pengajuan extends CI_Controller {
 		}
 	}
 
+	public function view_admin_data_terajukan()
+	{
+
+		if ($this->session->userdata('logged_in') == true AND $this->session->userdata('id_user_level') == 1) {
+			$id = $this->session->userdata('id');
+			$data['data_pengajuan'] = $this->m_data_pengajuan->get_data_terajukan($id)->result_array();
+			
+
+		$this->load->view('admin/data_terajukan', $data);
+
+		}else{
+			$this->session->set_flashdata('loggin_err','loggin_err');
+			redirect('Login/index');
+		}
+	}
+
 	
 	public function edit_data_admin($id_data_pengajuan){
 		if ($this->session->userdata('logged_in') == true AND $this->session->userdata('id_user_level') == 1) {
@@ -97,6 +113,22 @@ class Data_pengajuan extends CI_Controller {
 			$data['data_pengajuan'] = $this->m_data_pengajuan->get_data_pengajuan($id)->result_array();
 
 		$this->load->view('mitra/data_pengajuan', $data);
+
+		}else{
+			$this->session->set_flashdata('loggin_err','loggin_err');
+			redirect('Login/index');
+		}
+	}
+
+	public function view_mitra_data_terajukan()
+	{
+
+		if ($this->session->userdata('logged_in') == true AND $this->session->userdata('id_user_level') == 2) {
+			$id = $this->session->userdata('id');
+			$data['data_pengajuan'] = $this->m_data_pengajuan->get_data_terajukan($id)->result_array();
+			
+
+		$this->load->view('mitra/data_terajukan', $data);
 
 		}else{
 			$this->session->set_flashdata('loggin_err','loggin_err');
