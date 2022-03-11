@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <?php $this->load->view("admin/components/header.php") ?>
+    <?php $this->load->view("mitra/components/header.php") ?>
 </head>
 
 <body class="sb-nav-fixed">
@@ -65,18 +65,18 @@
     });
     </script>
     <?php } ?>
-    <?php $this->load->view("admin/components/nav_bar.php") ?>
+    <?php $this->load->view("mitra/components/nav_bar.php") ?>
 
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
-            <?php $this->load->view("admin/components/side_bar.php") ?>
+            <?php $this->load->view("mitra/components/side_bar.php") ?>
         </div>
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
                     <h1 class="mt-4">Data Status Pengajuan</h1>
                     <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item"><a href="<?= base_url();?>Dashboard/dashboard_admin">Dashboard</a>
+                        <li class="breadcrumb-item"><a href="<?= base_url();?>Dashboard/dashboard_mitra">Dashboard</a>
                         </li>
                         <li class="breadcrumb-item active">Pengajuan</li>
                     </ol>
@@ -132,7 +132,7 @@
                                             <div class="table-resposive">
                                                 <div class="table table-striped table-hover "><a type="button"
                                                         class="btn btn-primary"
-                                                        href="<?=base_url();?>assets/data_pengajuan/admin/<?=$file_data_pengajuan?>"><i
+                                                        href="<?=base_url();?>assets/data_pengajuan/mitra/<?=$file_data_pengajuan?>"><i
                                                             class="fas fa-download"></i></a>
                                                 </div>
                                             </div>
@@ -177,7 +177,7 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <form
-                                                        action="<?php echo base_url()?>Data_pengajuan/hapus_data_pengajuan_admin/<?=$id_data_pengajuan?>"
+                                                        action="<?php echo base_url()?>Data_pengajuan/hapus_data_pengajuan_mitra/<?=$id_data_pengajuan?>"
                                                         method="post" enctype="multipart/form-data">
                                                         <div class="row">
                                                             <div class="col-md-12">
@@ -219,7 +219,7 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <form
-                                                        action="<?= base_url(); ?>Data_pengajuan/edit_data_admin/<?= $id_data_pengajuan ?>"
+                                                        action="<?= base_url(); ?>Data_pengajuan/edit_data_mitra/<?= $id_data_pengajuan ?>"
                                                         enctype="multipart/form-data" method="POST">
                                                         <div class="mb-3">
                                                             <label for="id_status_pengajuan" class="form-label">Status
@@ -247,7 +247,7 @@
             </main>
         </div>
     </div>
-    <?php $this->load->view("admin/components/footer.php") ?>
+    <?php $this->load->view("mitra/components/footer.php") ?>
 </body>
 
 </html>

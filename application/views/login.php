@@ -15,7 +15,7 @@
     
 </head>
 
-<body class="bg-primary">
+<body class="bg-info">
     <?php if ($this->session->flashdata('input')){ ?>
     <script>
     swal({
