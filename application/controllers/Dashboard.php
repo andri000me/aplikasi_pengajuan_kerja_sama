@@ -67,10 +67,8 @@ class Dashboard extends CI_Controller {
 
 	
 	public function chart_Data_Anggota(){
-		if ($this->session->userdata('logged_in') == true AND $this->session->userdata('id_user_level') == 1 OR $this->session->userdata('id_user_level') == 2 ) {
 
-			
-			$data['data_chart'] = $this->m_user->count_all_table_all()->result_array();
+			$data['data_chart'] = $this->m_user->count_all_table_anngota()->result_array();
 
 			// echo var_dump($data['data_chart']);
 			// die();
@@ -86,12 +84,7 @@ class Dashboard extends CI_Controller {
 			header('Content-Type: application/json');
 			echo json_encode($callback); 
 	
-			}else{
-	
-				$this->session->set_flashdata('loggin_err','loggin_err');
-				redirect('Login/index');
-	
-			}
+			
 	}
 
 	public function dashboard_mitra()

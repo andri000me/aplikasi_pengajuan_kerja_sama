@@ -53,7 +53,7 @@ FROM    dual");
     return $hasil;
  }
 
- function count_all_table_anngota($id){
+ function count_all_table_anngota(){
     $hasil=$this->db->query("SELECT  (
         SELECT COUNT(*)
         FROM   kerja_sama_eksternal

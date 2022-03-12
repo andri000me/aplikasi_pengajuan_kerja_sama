@@ -4,7 +4,7 @@ Chart.plugins.register({
 $(document).ready(function() {
     Chart.defaults.global.defaultFontSize = 10.5;
     $.ajax({
-        url: `${BASE_URL}Dashboard/chart_Data`,
+        url: `${BASE_URL}Dashboard/chart_Data_Anggota`,
         method: "GET",
         success: function(data) {
             var value = [];
@@ -86,7 +86,7 @@ $(document).ready(function() {
     });
 
     $.ajax({
-        url: `${BASE_URL}Dashboard/chart_Data`,
+        url: `${BASE_URL}Dashboard/chart_Data_Anggota`,
         method: "GET",
         success: function(data) {
             var value = [];
