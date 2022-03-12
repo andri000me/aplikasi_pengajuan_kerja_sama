@@ -43,7 +43,8 @@ class Form_pengajuan extends CI_Controller {
 		$id_user_penerima = $this->input->post("id_user_penerima");
 
 		$id_status_pengajuan = 2;
-        $id_user_pengirim = $this->session->userdata('id');
+		$id_user_pengirim = $this->session->userdata('id');
+		$id_masa_berlaku = 1;
         $file_name = md5($no_pengajuan.$keterangan);
 
 		// echo $no_pengajuan;
@@ -85,7 +86,7 @@ class Form_pengajuan extends CI_Controller {
 				redirect('data_pengajuan/view_admin');
 			}
 		
-			$hasil = $this->m_data_pengajuan->tambah_data_pengajuan($no_pengajuan, $keterangan, $id_bentuk_perjanjian, $id_jenis_pengajuan, $file_data_pengajuan['file_name'],$id_negara_asal_pengajuan, $id_status_pengajuan, $id_kategori_kerjasama, $id_user_penerima, $id_user_pengirim );
+			$hasil = $this->m_data_pengajuan->tambah_data_pengajuan($no_pengajuan, $keterangan, $id_bentuk_perjanjian, $id_jenis_pengajuan, $file_data_pengajuan['file_name'],$id_negara_asal_pengajuan, $id_status_pengajuan, $id_kategori_kerjasama, $id_user_penerima, $id_user_pengirim, $id_masa_berlaku);
 	
 			if($hasil==false){
 				$this->session->set_flashdata('eror','eror');
