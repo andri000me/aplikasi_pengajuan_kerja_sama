@@ -40,6 +40,7 @@
                                         <th>Negara Asal Pengajuan</th>
                                         <th>Status Pengajuan</th>
                                         <th>Kategori Kerjasama</th>
+                                        <th>Masa Berlaku</th>
                                         <th>Pengirim</th>
                                         <th colspan="2">Aksi</th>
                                     </tr>
@@ -60,6 +61,7 @@
                                   $status_pengajuan = $i['status_pengajuan'];
                                   $nama_kategori_kerja_sama = $i['nama_kategori_kerja_sama'];
                                   $nama_mitra = $i['nama_mitra'];
+                                  $masa_berlaku = $i['masa_berlaku'];
                                   $id_data_pengajuan =  $i['id_data_pengajuan'];
                                  
                                  
@@ -82,6 +84,7 @@
                                         <td><?=  $negara_pengajuan ?></td>
                                         <td><?=  $status_pengajuan ?></td>
                                         <td><?=  $nama_kategori_kerja_sama ?></td>
+                                        <td><?= $masa_berlaku?></td>
                                         <td><?= $nama_mitra ?></td>
                                         <td>
                                             <div class="table-resposive">
@@ -167,9 +170,32 @@
                                                             <select class="form-select"
                                                                 aria-label="Default select example"
                                                                 name="id_status_pengajuan">
-                                                                <option value="1">Diterima</option>
-                                                                <option value="2">Tidak Diterima</option>
+                                                                <?php foreach($status_pengajuan_data as $u)
+                                                    :
+                                                    $id_status_pengajuan = $u["id_status_pengajuan"];
+                                                    $nama_status_pengajuan = $u["status_pengajuan"];
+                                                     ?>
+                                                                <option value="<?= $id_status_pengajuan ?>">
+                                                                    <?= $nama_status_pengajuan ?></option>
+                                                                <?php endforeach?>
                                                                 
+                                                            </select>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="id_masa_berlaku" class="form-label">Masa
+                                                                Berlaku</label>
+                                                            <select class="form-select"
+                                                                aria-label="Default select example"
+                                                                name="id_masa_berlaku">
+
+                                                                <?php foreach($masa_berlaku_data as $u)
+                                                    :
+                                                    $id_masa_berlaku = $u["id_masa_berlaku"];
+                                                    $nama_masa_berlaku = $u["masa_berlaku"];
+                                                     ?>
+                                                                <option value="<?= $id_masa_berlaku ?>">
+                                                                    <?= $nama_masa_berlaku ?></option>
+                                                                    <?php endforeach?>
                                                             </select>
                                                         </div>
                                                         <button type="submit" class="btn btn-primary">Submit</button>

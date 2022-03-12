@@ -98,8 +98,9 @@
                                         <th>Negara Asal Pengajuan</th>
                                         <th>Status Pengajuan</th>
                                         <th>Kategori Kerjasama</th>
+                                        <th>Masa Berlaku</th>
                                         <th>Penerima</th>
-                                        <th colspan="2">Aksi</th>
+                                        <th >Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -118,6 +119,7 @@
                                   $status_pengajuan = $i['status_pengajuan'];
                                   $nama_kategori_kerja_sama = $i['nama_kategori_kerja_sama'];
                                   $nama_mitra = $i['nama_mitra'];
+                                  $masa_berlaku = $i['masa_berlaku'];
                                   $id_data_pengajuan = $i['id_data_pengajuan'];
                                  
                                  
@@ -140,17 +142,9 @@
                                         <td><?=  $negara_pengajuan ?></td>
                                         <td><?=  $status_pengajuan ?></td>
                                         <td><?=  $nama_kategori_kerja_sama ?></td>
+                                        <td><?= $masa_berlaku?></td>
                                         <td><?= $nama_mitra ?></td>
-                                        <td>
-                                            <div class="table-resposive">
-                                                <div class="table table-striped table-hover ">
-                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                                        data-bs-target="#edit_data_pengajuan<?= $id_data_pengajuan ?>">
-                                                        <i class="fas fa-edit"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </td>
+                                     
                                         <td>
                                             <div class="table-resposive">
                                                 <div class="table table-striped table-hover ">
@@ -206,38 +200,7 @@
                                     </div>
 
 
-                                    <!-- Modal Edit Pengajuan -->
-                                    <div class="modal fade" id="edit_data_pengajuan<?= $id_data_pengajuan ?>"
-                                        tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Edit Data Pengajuan
-                                                    </h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form
-                                                        action="<?= base_url(); ?>Data_pengajuan/edit_data_mitra/<?= $id_data_pengajuan ?>"
-                                                        enctype="multipart/form-data" method="POST">
-                                                        <div class="mb-3">
-                                                            <label for="id_status_pengajuan" class="form-label">Status
-                                                                Pengajuan</label>
-                                                            <select class="form-select"
-                                                                aria-label="Default select example"
-                                                                name="id_status_pengajuan">
-                                                                <option value="1">Diterima</option>
-                                                                <option value="2">Tidak Diterima</option>
-
-                                                            </select>
-                                                        </div>
-                                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                     <?php endforeach?>
                                 </tbody>
                             </table>
