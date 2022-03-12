@@ -80,13 +80,25 @@
             </a>
             <div class="collapse" id="negara_pengajuan" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                 <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href="<?= base_url();?>Negara_pengajuan/dashboard_admin">Negara</a>
+                    <a class="nav-link" href="<?= base_url();?>Negara_pengajuan/view_admin">Negara</a>
                 </nav>
                 <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href="<?= base_url();?>Bentuk_perjanjian/dashboard_admin">Bentuk Perjanjian</a>
+                    <a class="nav-link" href="<?= base_url();?>Bentuk_perjanjian/view_admin">Bentuk Perjanjian</a>
                 </nav>
                 <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href="<?= base_url();?>Jenis_pengajuan/dashboard_admin">Jenis Pengajuan</a>
+                    <a class="nav-link" href="<?= base_url();?>Jenis_pengajuan/view_admin">Jenis Pengajuan</a>
+                </nav>
+                <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link" href="<?= base_url();?>Jenis_pengajuan/view_admin">kategori Kerja Sama</a>
+                </nav>
+                <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link" href="<?= base_url();?>Jenis_pengajuan/view_admin">Status Kerja Sama</a>
+                </nav>
+                <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link" href="<?= base_url();?>Jenis_pengajuan/view_admin">Status Pengajuan</a>
+                </nav>
+                <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link" href="<?= base_url();?>Jenis_pengajuan/view_admin">Masa Berlaku</a>
                 </nav>
             </div>
         </div>

@@ -137,12 +137,38 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    
+
                                     <?php endforeach;?>
                                 </tbody>
                             </table>
                         </div>
-                       
+                        <div class="modal fade" id="tambah_data_negara_pengajuan" tabindex="-1"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Tambah Data Negara
+                                        </h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="<?= base_url(); ?>Negara_pengajuan/input_data_admin"
+                                            enctype="multipart/form-data" method="POST">
+                                            <div class="mb-3">
+                                                <label for="negara_pengajuan" class="form-label">Negara</label>
+                                                <input type="text" class="form-control" id="negara_pengajuan"
+                                                    aria-describedby="negara_pengajuan" name="negara_pengajuan">
+                                            </div>
+                                            
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
                 </div>
