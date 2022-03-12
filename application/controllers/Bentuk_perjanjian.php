@@ -8,7 +8,7 @@ class Bentuk_perjanjian extends CI_Controller {
 		$this->load->model('m_bentuk_perjanjian');
     }
 
-    public function dashboard_admin()
+    public function view_admin()
     {
         if ($this->session->userdata('logged_in') == true AND $this->session->userdata('id_user_level') == 1) {
             $data['bentuk_perjanjian'] = $this->m_bentuk_perjanjian->get_bentuk_perjanjian();

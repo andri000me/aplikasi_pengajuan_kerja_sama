@@ -97,7 +97,7 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Nama Negara</th>
-                                        <th colspan="2">Aksi</th>
+                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
 
@@ -126,22 +126,46 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>
-                                            <div class="table-resposive">
-                                                <div class="table table-striped table-hover ">
-                                                    <a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#hapus<?php echo  $id_negara_pengajuan ?>"
-                                                        class="btn btn-danger"><i class="fas fa-trash"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </td>
+
                                     </tr>
 
+                                    <!-- Modal Edit Negara Pengajuan -->
+                                    <div class="modal fade" id="edit_data_negara_pengajuan<?= $id_negara_pengajuan ?>" tabindex="-1"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Edit Data Negara
+                                                    </h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form action="<?= base_url(); ?>Negara_pengajuan/edit_data_admin"
+                                                        enctype="multipart/form-data" method="POST">
+                                                        <div class="mb-3">
+                                                            <label for="negara_pengajuan"
+                                                                class="form-label">Negara</label>
+                                                                <input type="text" name="id_negara_pengajuan" value="<?= $id_negara_pengajuan?>" hidden>
+                                                            <input type="text" class="form-control"
+                                                                id="negara_pengajuan"
+                                                                aria-describedby="negara_pengajuan"
+                                                                name="negara_pengajuan" value="<?= $negara_pengajuan ?>">
+                                                        </div>
+
+                                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                                    </form>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
                                     <?php endforeach;?>
                                 </tbody>
                             </table>
                         </div>
+
+                        <!-- Modal Tambah Negara Pengajuan -->
                         <div class="modal fade" id="tambah_data_negara_pengajuan" tabindex="-1"
                             aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
@@ -160,7 +184,7 @@
                                                 <input type="text" class="form-control" id="negara_pengajuan"
                                                     aria-describedby="negara_pengajuan" name="negara_pengajuan">
                                             </div>
-                                            
+
                                             <button type="submit" class="btn btn-primary">Submit</button>
                                         </form>
                                     </div>

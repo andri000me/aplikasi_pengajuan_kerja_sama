@@ -42,5 +42,29 @@ class Negara_pengajuan extends CI_Controller {
         }
     }
 
+    public function edit_data_admin()
+    {
+        if ($this->session->userdata('logged_in') == true AND $this->session->userdata('id_user_level') == 1) {
+            $negara_pengajuan = $this->input->post("negara_pengajuan");
+            $id_negara_pengajuan = $this->input->post("id_negara_pengajuan");
+
+            $hasil = $this->m_negara_asal_pengajuan->update_negara_pengajuan($negara_pengajuan, $id_negara_pengajuan );
+	
+			if($hasil==false){
+				$this->session->set_flashdata('eror','eror');
+			
+			}else{
+				$this->session->set_flashdata('input','input');
+			
+			}
+
+			redirect('Negara_pengajuan/view_admin');
+
+        }else{
+            $this->session->set_flashdata('loggin_err','loggin_err');
+			redirect('Login/index');
+        }
+    }
+
     
 }

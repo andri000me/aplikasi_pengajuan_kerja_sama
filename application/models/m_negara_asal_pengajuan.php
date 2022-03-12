@@ -6,15 +6,20 @@ class M_negara_asal_pengajuan extends CI_Model
         return $hasil->result_array();
     }
 
-    public function tambah_negara_pengajuan(){
+    public function tambah_negara_pengajuan($negara_pengajuan){
         $this->db->trans_start();
-        $this->db->query("INSERT INTO implementasi_kerja_sama(masa_berlaku, id_lembaga_mitra, keterangan, id_bentuk_perjanjian, file_implementasi_kerja_sama, id_kategori_kerja_sama) 
-        VALUES ('$masa_berlaku', '$id_lembaga_mitra','$keterangan','$id_bentuk_perjanjian','$file_implementasi_kerja_sama','$id_kategori_kerja_sama')");
+        $this->db->query("INSERT INTO negara_asal_pengajuan(negara_pengajuan) 
+        VALUES ('$negara_pengajuan')");
         $this->db->trans_complete();
         if($this->db->trans_status()==true)
             return true;
         else
             return false;
     }
+
+    function update_negara_pengajuan($negara_pengajuan, $id_negara_pengajuan){
+        $hsl = $this->db->query("UPDATE negara_asal_pengajuan SET negara_pengajuan='$negara_pengajuan' WHERE id_negara_pengajuan='$id_negara_pengajuan'");
+         return $hsl;
+     }
 
 }
