@@ -95,10 +95,10 @@
                     <a class="nav-link" href="<?= base_url();?>Status_kerja_sama/view_admin">Status Kerja Sama</a>
                 </nav>
                 <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href="<?= base_url();?>Jenis_pengajuan/view_admin">Status Pengajuan</a>
+                    <a class="nav-link" href="<?= base_url();?>Status_pengajuan/view_admin">Status Pengajuan</a>
                 </nav>
                 <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href="<?= base_url();?>Jenis_pengajuan/view_admin">Masa Berlaku</a>
+                    <a class="nav-link" href="<?= base_url();?>Masa_berlaku/view_admin">Masa Berlaku</a>
                 </nav>
             </div>
         </div>

@@ -83,7 +83,7 @@
                     <ol>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                             data-bs-target="#tambah_data_bentuk_perjanjian">
-                            Tambah Data <i class="fas fa-plus"></i>
+                            Tambah Data Bentuk Perjanjian <i class="fas fa-plus"></i>
                         </button>
                     </ol>
                     <div class="card mb-4">
@@ -131,7 +131,7 @@
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Edit Data Negara
+                                                    <h5 class="modal-title" id="exampleModalLabel">Edit Bentuk Perjanjian
                                                     </h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                         aria-label="Close"></button>
@@ -141,7 +141,7 @@
                                                         enctype="multipart/form-data" method="POST">
                                                         <div class="mb-3">
                                                             <label for="bentuk_perjanjian"
-                                                                class="form-label">Negara</label>
+                                                                class="form-label">Bentuk Perjanjian</label>
                                                             <input type="text" name="id_bentuk_perjanjian"
                                                                 value="<?= $id_bentuk_perjanjian?>" hidden>
                                                             <input type="text" class="form-control"

@@ -74,16 +74,16 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">Table Jenis Pengajuan</h1>
+                    <h1 class="mt-4">Table Status Pengajuan</h1>
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item"><a href="<?= base_url();?>Dashboard/dashboard_admin">Dashboard</a>
                         </li>
-                        <li class="breadcrumb-item active">Data Jenis Pengajuan</li>
+                        <li class="breadcrumb-item active">Data Status Pengajuan</li>
                     </ol>
                     <ol>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#tambah_data_jenis_pengajuan">
-                            Tambah Data Jenis Pengajuan <i class="fas fa-plus"></i>
+                            data-bs-target="#tambah_data_status_pengajuan">
+                            Tambah Data Status Pengajuan <i class="fas fa-plus"></i>
                         </button>
                     </ol>
                     <div class="card mb-4">
@@ -96,7 +96,7 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Jenis Pengajuan</th>
+                                        <th>Status Pengajuan</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -105,22 +105,22 @@
                                     <?php
                                   
                   $id = 0;
-                  foreach($jenis_pengajuan as $i)
+                  foreach($status_pengajuan as $i)
                   :
                   $id++;
-                  $id_jenis_pengajuan = $i['id_jenis_pengajuan'];
-                  $jenis_pengajuan = $i['jenis_pengajuan'];
+                  $id_status_pengajuan = $i['id_status_pengajuan'];
+                  $status_pengajuan = $i['status_pengajuan'];
                  
 
               ?>
                                     <tr>
                                         <td><?= $id ?></td>
-                                        <td><?= $jenis_pengajuan ?></td>
+                                        <td><?= $status_pengajuan ?></td>
                                         <td>
                                             <div class="table-resposive">
                                                 <div class="table table-striped table-hover ">
                                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                                        data-bs-target="#edit_data_jenis_pengajuan<?= $id_jenis_pengajuan ?>">
+                                                        data-bs-target="#edit_data_status_pengajuan<?= $id_status_pengajuan ?>">
                                                         <i class="fas fa-edit"></i>
                                                     </button>
                                                 </div>
@@ -128,30 +128,30 @@
                                         </td>
 
                                     </tr>
-                                    <!-- Modal Edit Jenis Pengajuan -->
-                                    <div class="modal fade" id="edit_data_jenis_pengajuan<?= $id_jenis_pengajuan ?>"
+                                    <!-- Modal Edit Status Pengajuan -->
+                                    <div class="modal fade" id="edit_data_status_pengajuan<?= $id_status_pengajuan ?>"
                                         tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Edit Jenis Pengajuan
+                                                    <h5 class="modal-title" id="exampleModalLabel">Edit Status Pengajuan
                                                     </h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                         aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form action="<?= base_url(); ?>Jenis_pengajuan/edit_data_admin"
+                                                    <form action="<?= base_url(); ?>status_pengajuan/edit_data_admin"
                                                         enctype="multipart/form-data" method="POST">
                                                         <div class="mb-3">
-                                                            <label for="jenis_pengajuan"
-                                                                class="form-label">Jenis Pengajuan</label>
-                                                            <input type="text" name="id_jenis_pengajuan"
-                                                                value="<?= $id_jenis_pengajuan?>" hidden>
+                                                            <label for="status_pengajuan"
+                                                                class="form-label">Status Pengajuan</label>
+                                                            <input type="text" name="id_status_pengajuan"
+                                                                value="<?= $id_status_pengajuan?>" hidden>
                                                             <input type="text" class="form-control"
-                                                                id="jenis_pengajuan"
-                                                                aria-describedby="jenis_pengajuan"
-                                                                name="jenis_pengajuan"
-                                                                value="<?= $jenis_pengajuan ?>">
+                                                                id="status_pengajuan"
+                                                                aria-describedby="status_pengajuan"
+                                                                name="status_pengajuan"
+                                                                value="<?= $status_pengajuan ?>">
                                                         </div>
 
                                                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -165,23 +165,23 @@
                                 </tbody>
                             </table>
                         </div>
-                        <!-- Modal Tambah Jenis Pengajuan -->
-                        <div class="modal fade" id="tambah_data_jenis_pengajuan" tabindex="-1"
+                        <!-- Modal Tambah Status Pengajuan -->
+                        <div class="modal fade" id="tambah_data_status_pengajuan" tabindex="-1"
                             aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Tambah Jenis Pengajuan </h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Tambah Status Pengajuan</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="<?= base_url(); ?>Jenis_pengajuan/input_data_admin"
+                                        <form action="<?= base_url(); ?>status_pengajuan/input_data_admin"
                                             enctype="multipart/form-data" method="POST">
                                             <div class="mb-3">
-                                                <label for="jenis_pengajuan" class="form-label">Jenis Pengajuan</label>
-                                                <input type="text" class="form-control" id="jenis_pengajuan"
-                                                    aria-describedby="jenis_pengajuan" name="jenis_pengajuan">
+                                                <label for="status_pengajuan" class="form-label">Status Pengajuan</label>
+                                                <input type="text" class="form-control" id="status_pengajuan"
+                                                    aria-describedby="status_pengajuan" name="status_pengajuan">
                                             </div>
 
                                             <button type="submit" class="btn btn-primary">Submit</button>

@@ -83,7 +83,7 @@
                     <ol>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                             data-bs-target="#tambah_data_kategori_kerja_sama">
-                            Tambah Data <i class="fas fa-plus"></i>
+                            Tambah Data Kategori Kerja Sama <i class="fas fa-plus"></i>
                         </button>
                     </ol>
                     <div class="card mb-4">
@@ -131,7 +131,7 @@
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Edit Data Negara
+                                                    <h5 class="modal-title" id="exampleModalLabel">Edit Kategori Kerja Sama
                                                     </h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                         aria-label="Close"></button>
@@ -141,7 +141,7 @@
                                                         enctype="multipart/form-data" method="POST">
                                                         <div class="mb-3">
                                                             <label for="kategori_kerja_sama"
-                                                                class="form-label">Negara</label>
+                                                                class="form-label">Kategori Kerja Sama</label>
                                                             <input type="text" name="id_kategori_kerja_sama"
                                                                 value="<?= $id_kategori_kerja_sama?>" hidden>
                                                             <input type="text" class="form-control"
@@ -169,7 +169,7 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Tambah Bentuk Perjanjian </h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Tambah  Kategori Kerja Sama </h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
@@ -177,8 +177,7 @@
                                         <form action="<?= base_url(); ?>kategori_kerja_sama/input_data_admin"
                                             enctype="multipart/form-data" method="POST">
                                             <div class="mb-3">
-                                                <label for="kategori_kerja_sama" class="form-label">Bentuk
-                                                    Perjanjian</label>
+                                                <label for="kategori_kerja_sama" class="form-label"> Kategori Kerja Sama</label>
                                                 <input type="text" class="form-control" id="kategori_kerja_sama"
                                                     aria-describedby="kategori_kerja_sama" name="kategori_kerja_sama">
                                             </div>
