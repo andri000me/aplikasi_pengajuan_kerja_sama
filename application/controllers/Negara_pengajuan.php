@@ -54,7 +54,7 @@ class Negara_pengajuan extends CI_Controller {
 				$this->session->set_flashdata('eror','eror');
 			
 			}else{
-				$this->session->set_flashdata('input','input');
+				$this->session->set_flashdata('edit','edit');
 			
 			}
 

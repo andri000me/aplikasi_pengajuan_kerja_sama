@@ -17,7 +17,7 @@ class M_negara_asal_pengajuan extends CI_Model
             return false;
     }
 
-    function update_negara_pengajuan($negara_pengajuan, $id_negara_pengajuan){
+    public function update_negara_pengajuan($negara_pengajuan, $id_negara_pengajuan){
         $hsl = $this->db->query("UPDATE negara_asal_pengajuan SET negara_pengajuan='$negara_pengajuan' WHERE id_negara_pengajuan='$id_negara_pengajuan'");
          return $hsl;
      }

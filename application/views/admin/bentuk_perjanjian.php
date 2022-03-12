@@ -97,7 +97,7 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Bentuk Perjanjian</th>
-                                        <th colspan="2">Aksi</th>
+                                        <th >Aksi</th>
                                     </tr>
                                 </thead>
 
@@ -109,7 +109,7 @@
                                         $id++;
                                         $id_bentuk_perjanjian = $i['id_bentuk_perjanjian'];
                                         $bentuk_perjanjian = $i['bentuk_perjanjian'];
-                                    ?>                                                                                        
+                                    ?>
                                     <tr>
                                         <td><?= $id ?></td>
                                         <td><?= $bentuk_perjanjian ?></td>
@@ -117,29 +117,80 @@
                                             <div class="table-resposive">
                                                 <div class="table table-striped table-hover ">
                                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                                        data-bs-target="#edit_data_negara_pengajuan<?= $id_bentuk_perjanjian ?>">
+                                                        data-bs-target="#edit_data_bentuk_perjanjian<?= $id_bentuk_perjanjian ?>">
                                                         <i class="fas fa-edit"></i>
                                                     </button>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>
-                                            <div class="table-resposive">
-                                                <div class="table table-striped table-hover ">
-                                                    <a href="" data-bs-toggle="modal"
-                                                        data-bs-target="#hapus<?php echo  $id_bentuk_perjanjian ?>"
-                                                        class="btn btn-danger"><i class="fas fa-trash"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </td>
+                                        
                                     </tr>
-                                    
+                                    <!-- Modal Edit Bentuk Perjanjian -->
+                                    <div class="modal fade" id="edit_data_bentuk_perjanjian<?= $id_bentuk_perjanjian ?>"
+                                        tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Edit Data Negara
+                                                    </h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form action="<?= base_url(); ?>Bentuk_perjanjian/edit_data_admin"
+                                                        enctype="multipart/form-data" method="POST">
+                                                        <div class="mb-3">
+                                                            <label for="bentuk_perjanjian"
+                                                                class="form-label">Negara</label>
+                                                            <input type="text" name="id_bentuk_perjanjian"
+                                                                value="<?= $id_bentuk_perjanjian?>" hidden>
+                                                            <input type="text" class="form-control"
+                                                                id="bentuk_perjanjian"
+                                                                aria-describedby="bentuk_perjanjian"
+                                                                name="bentuk_perjanjian"
+                                                                value="<?= $bentuk_perjanjian ?>">
+                                                        </div>
+
+                                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                                    </form>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
                                     <?php endforeach;?>
                                 </tbody>
                             </table>
                         </div>
-                       
+
+                        <!-- Modal Tambah Bentuk Perjanjian -->
+                        <div class="modal fade" id="tambah_data_bentuk_perjanjian" tabindex="-1"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Tambah Bentuk Perjanjian </h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="<?= base_url(); ?>Bentuk_perjanjian/input_data_admin"
+                                            enctype="multipart/form-data" method="POST">
+                                            <div class="mb-3">
+                                                <label for="bentuk_perjanjian" class="form-label">Bentuk
+                                                    Perjanjian</label>
+                                                <input type="text" class="form-control" id="bentuk_perjanjian"
+                                                    aria-describedby="bentuk_perjanjian" name="bentuk_perjanjian">
+                                            </div>
+
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
                 </div>
