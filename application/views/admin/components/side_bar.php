@@ -92,7 +92,7 @@
                     <a class="nav-link" href="<?= base_url();?>Kategori_kerja_sama/view_admin">Kategori Kerja Sama</a>
                 </nav>
                 <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href="<?= base_url();?>Jenis_pengajuan/view_admin">Status Kerja Sama</a>
+                    <a class="nav-link" href="<?= base_url();?>Status_kerja_sama/view_admin">Status Kerja Sama</a>
                 </nav>
                 <nav class="sb-sidenav-menu-nested nav">
                     <a class="nav-link" href="<?= base_url();?>Jenis_pengajuan/view_admin">Status Pengajuan</a>
