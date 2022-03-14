@@ -134,7 +134,7 @@
                                             <div class="table-resposive">
                                                 <div class="table table-striped table-hover "><a type="button"
                                                         class="btn btn-primary"
-                                                        href="<?=base_url();?>assets/data_pengajuan/mitra/<?=$file_data_pengajuan?>"><i
+                                                        href="<?=base_url();?>assets/data_pengajuan/admin/<?=$file_data_pengajuan?>"><i
                                                             class="fas fa-download"></i></a>
                                                 </div>
                                             </div>
